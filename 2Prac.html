@@ -1,0 +1,59 @@
+<html>
+     <header>
+         <script>JavaScript</script>
+         <link rel="stylesheet" href="Prac.css">
+         <style>
+            .center {
+                text-align: center;
+                color: red;
+            }
+        </style>
+     </header>
+    <body>
+        <div id="header"> 
+            <h1> Header </h1>
+        </div>
+
+        <div id="body"> 
+            <h1> body </h1> 
+            <P class="bodyclass"> Message </P>
+            <p class="center">List :</p>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+            </ul>                       
+            <button id="addOne">AddOne</button>
+            <button id="clear">Clear</button>
+        </div>
+
+        <div class="footer"> 
+           <h1> footer </h1>
+             <ul>
+            </ul>
+        </div>    
+        
+         <div id="footer2"> 
+           <h1> footer2 </h1>
+             
+        </div>    
+        
+        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+        
+        <script>
+            $('#header h1').html("header2");
+            
+            $('#addOne').click(function(){
+                $('#body ul').append('<li>3</li>'); 
+                $('.footer ul').prepend('<li>4</li>');              
+            });
+               
+            $('#clear').click(function(){
+               $('ul').html('<li>5</li>') 
+            });
+            
+        </script>
+        
+        
+    </body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="PlayPage.css">   
+    <script>
+        var winHeight = 0;
+        var winWidth = 0;       
+        
+        function pBoardResize() {           
+          console.log('resizeDiv');
+          var winHeight = window.innerHeight;
+          var winWidth = window.innerWidth;
+          console.log('innerHeight' + winHeight);
+          console.log('innerWidth' + winWidth);   
+            
+          var pboardTop   = (winHeight/4)/2;
+          var pboardRight = (winWidth/4);           
+          var pboardHgt   = ((winHeight/2) + pboardTop);
+          var pboardwth   = ((winWidth/2) + pboardRight);
+
+          document.getElementById('pBoard').style.marginTop   = pboardTop + "px";  
+          document.getElementById('pBoard').style.marginRight = pboardRight + "px";            
+          document.getElementById('pBoard').style.height      = pboardHgt + "px";  
+          document.getElementById('pBoard').style.width       = pboardwth + "px"; 
+         
+        };           
+     
+        <!-- when window size got changed-->
+        window.addEventListener("resize", EventListenerForWindowSize);       
+        function EventListenerForWindowSize() { 
+           console.log('resizeMain');
+           pBoardResize()
+        }
+        
+        function display_ptime() {
+            var strcount = 2;
+            document.getElementById('pTime').value = strcount;
+            var unixtime =  new Date().getTime();
+            var unixtime_ms = new Date().getTime() + 10;    
+        }
+        
+        
+        var imgObj = null;
+        var animate ;
+        
+        function pDispCards(){
+             console.log('pDispCards');
+           imgObj = document.getElementById('myImage');
+           imgObj.style.position= 'relative';
+            console.log('pDispCards left' + imgObj.style.left);
+             console.log('pDispCards top ' + imgObj.style.top);
+            imgObj.style.left = '0px'; 
+            imgObj.style.top = '0px'; 
+            moveRight();
+            
+        }
+        
+        var imageEnable = true;
+        var imageDown = true;
+        function moveRight(){  
+            
+            if (imageEnable) {
+               console.log('imageEnable ' + imageEnable + ' pDispCards marginLeft  ' + imgObj.style.marginLeft);
+                if(imageDown){
+                    imgObj.style.left = parseInt(imgObj.style.left) + 150 + 'px';
+                    imgObj.style.top = parseInt(imgObj.style.top) + 100 + 'px';
+                }else{
+                    imgObj.style.left = parseInt(imgObj.style.left) + 150 + 'px';
+                    imgObj.style.top = parseInt(imgObj.style.top) - 100 + 'px';  
+                    
+                }
+               imageEnable = false;
+               console.log('imageEnable ' + imageEnable + ' tDispCards  ' + imgObj.style.top);   
+                
+            } else if (imageDown){    
+               console.log('imageEnable ' + imageEnable + ' pDispCards marginLeft  ' + imgObj.style.marginLeft);
+
+
+               imgObj.style.left = parseInt(imgObj.style.left) - 150 + 'px';
+               imgObj.style.top = parseInt(imgObj.style.top) - 100 + 'px';
+                
+               imageEnable = true;
+               imageDown = false;
+               console.log('imageEnable ' + imageEnable + ' pDispCards   ' + imgObj.style.top);
+                
+            } else if (!imageDown){     
+               console.log('imageEnable ' + imageEnable + ' pDispCards marginLeft  ' + imgObj.style.marginLeft);
+
+
+               imgObj.style.left = parseInt(imgObj.style.left) - 150 + 'px';
+               imgObj.style.top = parseInt(imgObj.style.top) + 100 + 'px';
+                
+               imageEnable = true;
+               imageDown = true;
+               console.log('imageEnable ' + imageEnable + ' pDispCards   ' + imgObj.style.top);    
+            }            
+
+            
+            setTimeout(moveRight,200);            
+        }
+
+    </script>
+</head>   
+
+<body id="pPageBody" onload="pBoardResize()">
+    <div id="pMain">       
+        <div id="pBoard"> 
+         <input type="text" id="pTime" value=""/>
+         <div id="pBoard">
+             <img id="myImage" src="/hd_pictures.jpg" onclick="pDispCards();"/>
+            
+        </div>           
+    </div>
+</body>
+    
+</html>

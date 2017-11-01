@@ -1,0 +1,24 @@
+
+/* css for predefined attributes */
+h1{    
+    background-color: antiquewhite;
+}
+
+/* css for id */
+#header{
+    background-color: mediumaquamarine;    
+}
+
+/* css for class */
+.bodyclass{    
+    background-color: aqua;
+}
+
+
+div.footer h1{
+   background-color: chartreuse;     
+} 
+
+div#footer2 h1{
+   background-color: chartreuse;     
+}
