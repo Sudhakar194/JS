@@ -170,5 +170,12 @@ ionic cordova plugin add cordova-plugin-advanced-http
 logger -- log4j 
 https://robferguson.org/blog/2017/11/19/ionic-3-and-forms/
 
-form validation
+form validation -- good one 
 https://forum.ionicframework.com/t/a-good-form-validation-example/117960/9
+
+Sliding List
+https://ionicframework.com/docs/components/#sliding-list
+
+tarnary condition (the)
+https://stackoverflow.com/questions/51301771/toggle-change-nested-button-colors-in-ionic-2x
+
