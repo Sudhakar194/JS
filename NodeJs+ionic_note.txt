@@ -179,3 +179,12 @@ https://ionicframework.com/docs/components/#sliding-list
 tarnary condition (the)
 https://stackoverflow.com/questions/51301771/toggle-change-nested-button-colors-in-ionic-2x
 
+menu change right to left left to right 
+https://forum.ionicframework.com/t/change-side-menu-direction-in-ionic-and-multi-app-direction-rtl-ltr/97963/7
+
+
+Form moves up when ion-input fields get focus  --- check with one 
+
+ select box change the value based  on the scrollling 
+https://stackoverflow.com/questions/40654527/ionic-2-adding-form-fields-dynamically?rq=1
+

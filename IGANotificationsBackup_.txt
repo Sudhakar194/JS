@@ -360,5 +360,17 @@ Error: If ngModel is used within a form tag, either the name attribute must be s
 
 </ion-content>
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+   1) // this.selectedItem = navParams.get('item');
+   
+  2)   /** ionViewDidLoad() {
+			console.log('ionViewDidLoad MinstrylistPage ');
+		  } */
+
+  3) 	  	// That's right, we're pushing to ourselves!
+	    //this.appObject.getRootNav().push(NotificationPage, {item: item} );
+
+		this.navCtrl.setRoot(NotificationPage);
+		this.navCtrl.push(NotificationPage, {item: item}); 
 
