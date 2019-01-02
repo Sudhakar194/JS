@@ -188,3 +188,11 @@ Form moves up when ion-input fields get focus  --- check with one
  select box change the value based  on the scrollling 
 https://stackoverflow.com/questions/40654527/ionic-2-adding-form-fields-dynamically?rq=1
 
+file upload and dowload 
+https://ionicframework.com/docs/native/file-transfer/
+
+
+file writter 
+https://stackoverflow.com/questions/51099069/read-write-append-file-in-ionic-3-using-ionic-native-file
+https://forum.ionicframework.com/t/how-to-append-a-text-in-a-existing-files-specific-location/119520
+

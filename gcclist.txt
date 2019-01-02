@@ -1,0 +1,7 @@
+{"errorCode":"200","errorMsg":"","errorMsgAr":"","dataUpdated":"" ,"responseObject":[
+	 {"code":"441","nameEN":"Saudi","nameAR":"سعودي"}
+	,{"code":"430","nameEN":"Kuwaiti","nameAR":"كويتي"}
+	,{"code":"411","nameEN":"United Arab Emirates","nameAR":"اماراتي"} 
+	 ,{"code":"440","nameEN":"Qatari","nameAR":"قطري"}
+	 ,{"code":"436","nameEN":"Omani","nameAR":"عماني"}
+ ]}
