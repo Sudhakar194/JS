@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="NGI_CSBJobApplication" targetNamespace="http://com/ngi/csb/NGI_CSBJobApplication" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://com/ngi/csb/NGI_CSBJobApplication" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <wsdl:types>
+      <xsd:schema targetNamespace="http://com/ngi/csb/NGI_CSBJobApplication">
+         
+         <xsd:element name="ValidateUserEligibilityRequest" type="tns:ValidateUserEligibilityRequest"/>
+         <xsd:element name="ValidateUserEligibilityResponse" type="tns:ValidateUserEligibilityResponse"/>
+        
+         <xsd:element name="SubmitJobApplicationRequest" type="tns:SubmitJobApplicationRequest"/>
+         <xsd:element name="SubmitJobApplicationResponse" type="tns:SubmitJobApplicationResponse"/>
+         
+         
+         <xsd:element name="UploadAttachmentRequest" type="tns:UploadAttachmentRequest"/>
+         <xsd:element name="UploadAttachmentResponse" type="tns:UploadAttachmentResponse"/>
+         
+         <xsd:element name="LKUPRequiredAttachmentsRequest" type="tns:LKUPRequiredAttachmentsRequest"/>
+         <xsd:element name="LKUPRequiredAttachmentsResponse" type="tns:LKUPRequiredAttachmentsResponse"/>
+         
+         
+         <xsd:element name="LKUPWorkConditionsRequest" type="tns:LKUPWorkConditionsRequest"/>
+         <xsd:element name="LKUPWorkConditionsResponse" type="tns:LKUPWorkConditionsResponse"/>
+             
+         
+         <xsd:element name="LKUPQualificationRequest" type="tns:LKUPQualificationRequest"/>
+         <xsd:element name="LKUPQualificationResponse" type="tns:LKUPQualificationResponse"/>
+         
+         <xsd:element name="LKUPSpecializationRequest" type="tns:LKUPSpecializationRequest"/>
+         <xsd:element name="LKUPSpecializationResponse" type="tns:LKUPSpecializationResponse"/>         
+         
+         <xsd:element name="LKUPEducationalInstitutionsRequest" type="tns:LKUPEducationalInstitutionsRequest"/>
+         <xsd:element name="LKUPEducationalInstitutionsResponse" type="tns:LKUPEducationalInstitutionsResponse"/>
+        
+         
+         <xsd:complexType name="LKUPEducationalInstitutionsRequest">
+            <xsd:sequence>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPEducationalInstitutionsResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element maxOccurs="unbounded" minOccurs="0" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPObjType">           
+             <xsd:sequence>
+                <xsd:element maxOccurs="1" minOccurs="0" name="Code" type="xsd:string"/>
+                <xsd:element maxOccurs="1" minOccurs="0" name="DescAr" type="xsd:string"/>
+                <xsd:element maxOccurs="1" minOccurs="0" name="DescEn" type="xsd:string"/>
+             </xsd:sequence>               
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPSpecializationRequest">
+            <xsd:sequence>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPSpecializationResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element maxOccurs="unbounded" minOccurs="0" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+          <xsd:complexType name="LKUPQualificationRequest">
+            <xsd:sequence>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPQualificationResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element maxOccurs="unbounded" minOccurs="0" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPWorkConditionsRequest">
+            <xsd:sequence>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPWorkConditionsResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element maxOccurs="unbounded" minOccurs="0" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+          <xsd:complexType name="LKUPRequiredAttachmentsRequest">
+            <xsd:sequence>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPRequiredAttachmentsResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element maxOccurs="unbounded" minOccurs="0" name="LKUPObj" type="tns:LKUPRequiredAttachmentsType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+          <xsd:complexType name="LKUPRequiredAttachmentsType">           
+             <xsd:sequence>
+                <xsd:element maxOccurs="1" minOccurs="0" name="Code" type="xsd:string"/>
+                <xsd:element maxOccurs="1" minOccurs="0" name="DescAr" type="xsd:string"/>
+                <xsd:element maxOccurs="1" minOccurs="0" name="DescEn" type="xsd:string"/>
+                <xsd:element maxOccurs="1" minOccurs="0" name="IsRequired" type="xsd:string"/>
+             </xsd:sequence>               
+         </xsd:complexType>
+                  
+         
+         <xsd:complexType name="UploadAttachmentRequest">
+            <xsd:sequence>        
+               <xsd:element minOccurs="0" name="IDNumber" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="AttachmentName" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="AttachmentContent" type="xsd:string"/>                                
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="UploadAttachmentResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                      <xsd:element minOccurs="0" name="AttachmentID" type="xsd:string"/>    
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         
+         <xsd:complexType name="ValidateUserEligibilityRequest">
+            <xsd:sequence>          
+               <xsd:element minOccurs="0" name="IDNumber" type="xsd:string"/>  
+               <xsd:element minOccurs="0" name="eKeyCPRNumber" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="eKeyServiceID" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="eKeyTokenID" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="eKeyTimestamp" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="ValidateUserEligibilityResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                      <xsd:element minOccurs="0" name="ApplicantDetails" type="tns:ApplicantDetailsType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         <xsd:complexType name="ApplicantDetailsType">
+            <xsd:sequence>          
+               <xsd:element minOccurs="0" name="IDNumber" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="NameEn" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="NameAr" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="NationalityNameEn" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="NationalityNameAr" type="xsd:string"/>               
+               <xsd:element minOccurs="0" name="DateOfBirth" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="PlaceOfBirth" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="ApplicantAddress" type="tns:ApplicantAddressType"/>  
+               <xsd:element minOccurs="0" name="ApplicantEligibility" type="tns:ApplicantEligibilityType"/>
+                                          
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="ApplicantAddressType">
+            <xsd:sequence>                        
+               <xsd:element minOccurs="0" name="Flat" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="Building" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="Road" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="Block" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="BuildingAlpha" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="StreetName" type="xsd:string"/>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="ApplicantEligibilityType">
+            <xsd:sequence>                        
+               <xsd:element minOccurs="0" name="JobApplicationNumber" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="JobApplicationStatusID" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="JobApplicationStatusEn" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="JobApplicationStatusAr" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="Comments" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         
+         
+         <xsd:complexType name="SubmitJobApplicationRequest">
+            <xsd:sequence>    
+               <xsd:element minOccurs="0" name="IDNumber" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="NameEn" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="NameAr" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="DateOfBirth" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="PlaceOfBirth" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="IsMarried" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="MobileNumber1" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="MobileNumber2" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="Email" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="ApplicantAddress" type="tns:ApplicantAddressType"/>  
+               <xsd:element minOccurs="0" name="AttachmentDetailsList" type="tns:AttachmentDetailsListType"/>
+               <xsd:element minOccurs="0" name="PracticalExperiencesList" type="tns:PracticalExperiencesListType"/>
+               <xsd:element minOccurs="0" name="QualificationsList" type="tns:QualificationsListType"/>                   
+               <xsd:element minOccurs="0" name="SelectedWorkConditions" type="tns:SelectedWorkConditionsType"/>
+               <xsd:element minOccurs="0" name="TrainingsList" type="tns:TrainingsListType"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         
+         <xsd:complexType name="AttachmentDetailsListType">
+            <xsd:sequence>  
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="AttachmentDetails" type="tns:AttachmentDetailsType"/>                 
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="AttachmentDetailsType">
+            <xsd:sequence>  
+               <xsd:element minOccurs="0" name="AttachmentTypeCode" type="xsd:string"/> 
+               <xsd:element minOccurs="0" name="AttachmentName" type="xsd:string"/>       
+               <xsd:element minOccurs="0" name="AttachmentID" type="xsd:string"/> 
+            </xsd:sequence>
+         </xsd:complexType>
+         
+         <xsd:complexType name="PracticalExperiencesListType">
+            <xsd:sequence>                   
+               <xsd:element minOccurs="0" maxOccurs="unbounded" name="PracticalExperiences" type="tns:PracticalExperiencesType"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="PracticalExperiencesType">
+            <xsd:sequence>                   
+               <xsd:element minOccurs="0" name="JobTitle" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="Organization" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="StartDate" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="EndDate" type="xsd:string"/>                      
+               <xsd:element minOccurs="0" name="Salary" type="xsd:string"/>  
+               <xsd:element minOccurs="0" name="ResignationReason" type="xsd:string"/>               
+               <xsd:element minOccurs="0" name="DutiesAndResponsibilities" type="xsd:string"/>              
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="QualificationsListType">
+            <xsd:sequence>                   
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="Qualifications" type="tns:QualificationsType"/>   
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="QualificationsType">
+            <xsd:sequence>                                       
+	               	<xsd:element minOccurs="0" name="EducationalInstitutionID" type="xsd:string"/>
+	               	<xsd:element minOccurs="0" name="QualificationID" type="xsd:string"/>   
+	               	<xsd:element minOccurs="0" name="SpecializationID" type="xsd:string"/>
+	               	<xsd:element minOccurs="0" name="GraduationYear" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SelectedWorkConditionsType">
+            <xsd:sequence>                   
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="WorkConditionID" type="xsd:string"/>	               
+            </xsd:sequence>
+         </xsd:complexType>
+          <xsd:complexType name="TrainingsListType">
+            <xsd:sequence>                   
+                    <xsd:element minOccurs="0" maxOccurs="unbounded" name="Trainings" type="tns:TrainingsType"/>   
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="TrainingsType">
+            <xsd:sequence>                   
+                    <xsd:element minOccurs="0" name="TrainingName" type="xsd:string"/>
+	               	<xsd:element minOccurs="0" name="TrainingPlace" type="xsd:string"/>
+	               	<xsd:element minOccurs="0" name="TrainingYearId" type="xsd:string"/>   	               	
+            </xsd:sequence>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SubmitJobApplicationResponse">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                    <xsd:element minOccurs="0" name="JobApplicationNumber" type="xsd:string"/>
+	               	<xsd:element minOccurs="0" name="JobApplicationStatusID" type="xsd:string"/>
+	               	<xsd:element minOccurs="0" name="JobApplicationStatusEn" type="xsd:string"/>
+	               	<xsd:element minOccurs="0" name="JobApplicationStatusAr" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         
+         
+       
+         <xsd:complexType name="ReturnCodes">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="StatusCode" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="StatusMessage" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="AdditionalInfo" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         
+         
+      </xsd:schema>
+   </wsdl:types>
+   
+   <wsdl:message name="ValidateUserEligibilityRequest">
+      <wsdl:part element="tns:ValidateUserEligibilityRequest" name="ValidateUserEligibilityParameters"/>
+   </wsdl:message>
+   <wsdl:message name="ValidateUserEligibilityResponse">
+      <wsdl:part element="tns:ValidateUserEligibilityResponse" name="ValidateUserEligibilityResult"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SubmitJobApplicationRequest">
+      <wsdl:part element="tns:SubmitJobApplicationRequest" name="SubmitJobApplicationParameters"/>
+   </wsdl:message>
+   <wsdl:message name="SubmitJobApplicationResponse">
+      <wsdl:part element="tns:SubmitJobApplicationResponse" name="SubmitJobApplicationResult"/>
+   </wsdl:message>
+   
+   <wsdl:message name="UploadAttachmentRequest">
+      <wsdl:part element="tns:UploadAttachmentRequest" name="UploadAttachmentParameters"/>
+   </wsdl:message>
+   <wsdl:message name="UploadAttachmentResponse">
+      <wsdl:part element="tns:UploadAttachmentResponse" name="UploadAttachmentResult"/>
+   </wsdl:message>   
+   
+   <wsdl:message name="LKUPRequiredAttachmentsRequest">
+      <wsdl:part element="tns:LKUPRequiredAttachmentsRequest" name="LKUPRequiredAttachmentsParameters"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPRequiredAttachmentsResponse">
+      <wsdl:part element="tns:LKUPRequiredAttachmentsResponse" name="LKUPRequiredAttachmentsResult"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPWorkConditionsRequest">
+      <wsdl:part element="tns:LKUPWorkConditionsRequest" name="LKUPWorkConditionsParameters"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPWorkConditionsResponse">
+      <wsdl:part element="tns:LKUPWorkConditionsResponse" name="LKUPWorkConditionsResult"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPQualificationRequest">
+      <wsdl:part element="tns:LKUPQualificationRequest" name="LKUPQualificationParameters"/>
+   </wsdl:message>   
+   <wsdl:message name="LKUPQualificationResponse">
+      <wsdl:part element="tns:LKUPQualificationResponse" name="LKUPQualificationResult"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPSpecializationRequest">
+      <wsdl:part element="tns:LKUPSpecializationRequest" name="LKUPSpecializationParameters"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPSpecializationResponse">
+      <wsdl:part element="tns:LKUPSpecializationResponse" name="LKUPSpecializationResult"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPEducationalInstitutionsRequest">
+      <wsdl:part element="tns:LKUPEducationalInstitutionsRequest" name="LKUPEducationalInstitutionsParameters"/>
+   </wsdl:message>
+    <wsdl:message name="LKUPEducationalInstitutionsResponse">
+      <wsdl:part element="tns:LKUPEducationalInstitutionsResponse" name="LKUPEducationalInstitutionsResult"/>
+   </wsdl:message>
+   
+   
+   <wsdl:portType name="NGI_CSBJobApplication">
+      <wsdl:operation name="ValidateUserEligibility">
+         <wsdl:input message="tns:ValidateUserEligibilityRequest" name="ValidateUserEligibilityRequest"/>
+         <wsdl:output message="tns:ValidateUserEligibilityResponse" name="ValidateUserEligibilityResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="SubmitJobApplication">
+         <wsdl:input message="tns:SubmitJobApplicationRequest" name="SubmitJobApplicationRequest"/>
+         <wsdl:output message="tns:SubmitJobApplicationResponse" name="SubmitJobApplicationResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="UploadAttachment">
+         <wsdl:input message="tns:UploadAttachmentRequest" name="UploadAttachmentRequest"/>
+         <wsdl:output message="tns:UploadAttachmentResponse" name="UploadAttachmentResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="LKUPRequiredAttachments">
+         <wsdl:input message="tns:LKUPRequiredAttachmentsRequest" name="LKUPRequiredAttachmentsRequest"/>
+         <wsdl:output message="tns:LKUPRequiredAttachmentsResponse" name="LKUPRequiredAttachmentsResponse"/>
+      </wsdl:operation>
+      <wsdl:operation name="LKUPWorkConditions">
+         <wsdl:input message="tns:LKUPWorkConditionsRequest" name="LKUPWorkConditionsRequest"/>
+         <wsdl:output message="tns:LKUPWorkConditionsResponse" name="LKUPWorkConditionsResponse"/>
+      </wsdl:operation>
+       <wsdl:operation name="LKUPQualification">
+         <wsdl:input message="tns:LKUPQualificationRequest" name="LKUPQualificationRequest"/>
+         <wsdl:output message="tns:LKUPQualificationResponse" name="LKUPQualificationResponse"/>
+      </wsdl:operation>
+       <wsdl:operation name="LKUPSpecialization">
+         <wsdl:input message="tns:LKUPSpecializationRequest" name="LKUPSpecializationRequest"/>
+         <wsdl:output message="tns:LKUPSpecializationResponse" name="LKUPSpecializationResponse"/>
+      </wsdl:operation>
+       <wsdl:operation name="LKUPEducationalInstitutions">
+         <wsdl:input message="tns:LKUPEducationalInstitutionsRequest" name="LKUPEducationalInstitutionsRequest"/>
+         <wsdl:output message="tns:LKUPEducationalInstitutionsResponse" name="LKUPEducationalInstitutionsResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   
+   
+   <wsdl:binding name="NGI_CSBJobApplicationHttpBinding" type="tns:NGI_CSBJobApplication">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      <wsdl:operation name="ValidateUserEligibility">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="ValidateUserEligibilityRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="ValidateUserEligibilityResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="SubmitJobApplication">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SubmitJobApplicationRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SubmitJobApplicationResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="UploadAttachment">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="UploadAttachmentRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="UploadAttachmentResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      <wsdl:operation name="LKUPRequiredAttachments">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPRequiredAttachmentsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPRequiredAttachmentsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+       <wsdl:operation name="LKUPWorkConditions">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPWorkConditionsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPWorkConditionsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+         <wsdl:operation name="LKUPQualification">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPQualificationRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPQualificationResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+         <wsdl:operation name="LKUPSpecialization">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPSpecializationRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPSpecializationResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+         <wsdl:operation name="LKUPEducationalInstitutions">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPEducationalInstitutionsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPEducationalInstitutionsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      
+   </wsdl:binding>
+   <wsdl:service name="NGI_CSBJobApplication">
+      <wsdl:port binding="tns:NGI_CSBJobApplicationHttpBinding" name="NGI_CSBJobApplicationHttpPort">
+         <soap:address location="http://localhost:7800/CSB/NGI_CSBJobApplication"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
