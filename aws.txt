@@ -1,0 +1,127 @@
+Gyanvriksh kondpur.
+
+Course Content :
+
+AWS Concepts
+AWS Architecture and Terminology
+Compute and Networking Services
+Storage and Content Delivery Services
+Database Services
+Analytics Services
+App Services
+Deployment Services
+Management Services
+
+Amazon IAM (Identity And Access Management)
+IAM Essentials
+IAM Best Practices For New Accounts
+API Keys And Roles
+IAM Policies
+Log IAM Events With CloudTrail
+
+Amazon S3 (Simple Storage Service)
+AWS S3 Essentials
+Getting Started
+S3 Permissions
+S3 Bucket/Object Versioning And LifeCycle Policies
+Website Hosting With S3
+
+Amazon EC2 (Elastic Compute Cloud)
+EC2 Essentials
+Understanding Reserved Instances
+Selecting And Building EC2 Instances
+EBS Volumes And Snapshots
+Working With Public And Private IP Addresses
+Cloud-init Userdata And Metadata
+Security Groups
+CloudWatch And EC2
+EC2 Placement Groups
+Serving Traffic To Private Web Servers
+
+Amazon RDS (Relational Database Service)
+RDS Essentials
+Working With RDS
+Subnet Groups
+RDS Security Groups And Connecting To RDS From EC2
+
+Amazon VPC (Virtual Private Cloud) And Networking
+Introduction To VPC And AWS Networking
+Building A VPC From Scratch
+VPC Networking
+VPC Security
+Configuring A NAT Instance
+Extending The VPC To On-Premise Networks
+VPC Peering
+
+High Availability And Fault Tolerant Tools With EC2
+Working With Amazon Machine Images (AMI’s)
+ELB With High Availability Hands On
+Applying Auto Scaling And ELB To Create High Availability And Fault Tolerance
+
+AWS Direct Connect
+Understanding AWS Direct Connect
+
+Amazon Kinesis
+Learning Amazon Kinesis
+IOT Kinesis Example
+
+Amazon Cloudfront
+loudFront Essentials
+Architecting Applications With CloudFront
+Performance Considerations With CloudFront
+
+Route 53
+Route53 and DNS Failover
+Latency Based Routing
+Weighted Routing Policies In Route53
+
+Amazon SNS (Simple Notification Service)
+SNS Essentials
+Amazon SQS (Simple Queue Service)
+SQS Essentials
+Using SQS To Build Decoupled Application Architectures
+
+Amazon SWF (Simple Work Flow Service)
+SWF Essentials
+
+Amazon EMR (Elastic Map Reduce)
+EMR Essentials
+
+Amazon Elastic Beanstalk
+Elastic Beanstalk Essentials
+Getting Started With Elastic Beanstalk
+Amazon CloudFormation
+CloudFormation Essentials
+Building An S3 Bucket With CloudFormation
+
+AWS Command Line Interface (AWS CLI)
+About The CLI And Getting Setup
+AW CLI: Working With EC2
+AW CLI: Working With S3
+
+Designing highly available, cost efficient, fault tolerant, scalable systems
+
+Implementation/Deployment
+How To Design Cloud Services & Best Practices
+Monitoring
+Architectural Trade-Off Decisions
+Elasticity And Scalability
+
+Data Security
+Security Architecture with AWS
+Shared Security Responsibility Model And Attributes
+AWS Platform Compliance And Security Services
+Incorporating Common Conventional Security Products
+DDoS Mitigation
+Encryption solutions
+Complex Access Controls
+Amazon CloudWatch For The Security Architect
+CloudHSM
+
+Recognize critical disaster recovery techniques and their implementation Disaster Recovery
+
+Troubleshooting
+EC2 Troubleshooting Scenarios
+VPC Troubleshooting Scenarios
+ELB Troubleshooting Scenarios
+Auto Scaling Troubleshooting Scenarios
