@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<vehicle-container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<vehicle-list>
+<vehicle>
+<owner-details>
+<owner-type>CR</owner-type>
+<cr>6853701</cr>
+<arabic-name></arabic-name>
+<english-name>CHOCOLATE AND CO COMPANY W.L.L</english-name>
+<gender-id> </gender-id>
+<nationality-id>499</nationality-id>
+<pobox></pobox>
+<flat>0</flat>
+<building>263</building>
+<block>115</block>
+<road>1505</road>
+<area-code></area-code>
+</owner-details>
+<vehicle-details>
+<payment-method>F</payment-method>
+<make-id>76</make-id>
+<model-id>1136</model-id>
+<type-id>65</type-id>
+<colour1-id>4</colour1-id>
+<colour2-id></colour2-id>
+<colour3-id></colour3-id>
+<country-of-origin>424</country-of-origin>
+<year-of-model>2019</year-of-model>
+<chassis-no>MHKEF8BF1KK005676</chassis-no>
+<engine-no>2NR-F824201</engine-no>
+<horsepower>1500</horsepower>
+<number-of-cylinders>4</number-of-cylinders>
+<number-of-seats>7</number-of-seats>
+<steering-position>T</steering-position>
+<fuel-type>1</fuel-type>
+<weight>1290</weight>
+<number-of-axles>2</number-of-axles>
+<max-speed>200</max-speed>
+<speed-measure>1</speed-measure>
+<finance-cr></finance-cr>
+<reserved-number></reserved-number>
+<plate-type>01</plate-type>
+<short-plate>1</short-plate>
+<long-plate>1</long-plate>
+</vehicle-details>
+<insurance-details>
+<insurance-company-name>25</insurance-company-name>
+<policy-number>79203</policy-number>
+<insurance-date-start>08-04-2019</insurance-date-start>
+<insurance-date-end>30-04-2020</insurance-date-end>
+</insurance-details>
+</vehicle>
+</vehicle-list>
+</vehicle-container>
