@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsi:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema" >
+         
+         <xsi:element name="vehicle-container" type="vehicle-containerRequest"/>        
+ 
+         <xsi:complexType name="vehicle-containerRequest">
+            <xsi:sequence>    
+               <xsi:element minOccurs="0" name="vehicle-list" type="vehicle-listType"/>             
+            </xsi:sequence>
+         </xsi:complexType>
+         
+          <xsi:complexType name="vehicle-listType">
+            <xsi:sequence>    
+               <xsi:element maxOccurs="unbounded" minOccurs="0" name="vehicle" type="vehicleType"/>             
+            </xsi:sequence>
+         </xsi:complexType>
+         
+          <xsi:complexType name="vehicleType">
+            <xsi:sequence>                   
+                    <xsi:element minOccurs="0" name="owner-details" type="owner-detailsType"/>	                                   
+                    <xsi:element minOccurs="0" name="vehicle-details" type="vehicle-detailsType"/>
+                    <xsi:element minOccurs="0" name="insurance-details" type="insurance-detailsType"/>
+            </xsi:sequence>
+         </xsi:complexType>
+         <xsi:complexType name="owner-detailsType">
+            <xsi:sequence>                   
+                    <xsi:element minOccurs="0" name="owner-type" type="xsi:string"/>	               
+                    <xsi:element minOccurs="0" name="cpr" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="arabic-name" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="english-name" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="gender-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="nationality-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="pobox" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="flat" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="building" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="block" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="road" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="area-code" type="xsi:string"/>
+            </xsi:sequence>
+         </xsi:complexType> 
+         <xsi:complexType name="vehicle-detailsType">
+            <xsi:sequence>                   
+                    <xsi:element minOccurs="0" name="payment-method" type="xsi:string"/>	               
+                    <xsi:element minOccurs="0" name="make-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="model-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="type-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="colour1-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="colour2-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="colour3-id" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="country-of-origin" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="year-of-model" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="chassis-no" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="engine-no" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="horsepower" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="number-of-cylinders" type="xsi:string"/>	               
+                    <xsi:element minOccurs="0" name="number-of-seats" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="steering-position" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="fuel-type" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="weight" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="number-of-axles" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="max-speed" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="speed-measure" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="finance-cr" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="reserved-number" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="plate-type" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="short-plate" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="long-plate" type="xsi:string"/>
+            </xsi:sequence>
+         </xsi:complexType> 
+         <xsi:complexType name="insurance-detailsType">
+            <xsi:sequence>                   
+                    <xsi:element minOccurs="0" name="insurance-company-name" type="xsi:string"/>	               
+                    <xsi:element minOccurs="0" name="policy-number" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="insurance-date-start" type="xsi:string"/>
+                    <xsi:element minOccurs="0" name="insurance-date-end" type="xsi:string"/>
+            </xsi:sequence>
+         </xsi:complexType>
+         
+         
+ </xsi:schema>
