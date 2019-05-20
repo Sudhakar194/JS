@@ -1,0 +1,394 @@
+UnitBasicDetailsServiceImpl
+
+
+package bh.gov.cio.integration.crs.retrieve.units;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
+
+import bh.gov.cio.crs.model.person.PersonBasicInfo;
+import bh.gov.cio.crs.model.unit.UnitActivity;
+import bh.gov.cio.crs.model.unit.UnitEntity;
+import bh.gov.cio.crs.model.unit.UnitInfo;
+import bh.gov.cio.crs.service.UnitService;
+import bh.gov.cio.integration.common.CRSServicesProviderServiceImpl;
+import bh.gov.cio.integration.common.ValidationServiceImpl;
+import bh.gov.cio.integration.crs.retrieve.units.service.UnitBasicDetailsServiceInterface;
+import bh.gov.cio.integration.crs.retrieve.units.service.UnitDetailsServiceInterface;
+import bh.gov.cio.integration.crs.retrieve.units.service.dto.UnitAddressInfoDTO;
+import bh.gov.cio.integration.crs.retrieve.units.service.dto.UnitBrancheDTO;
+import bh.gov.cio.integration.crs.retrieve.units.service.dto.UnitDetailsInfoDTO;
+import bh.gov.cio.integration.crs.retrieve.units.service.dto.UnitMainActivityDTO;
+import bh.gov.cio.integration.exception.ApplicationExceptionInfo;
+import bh.gov.cio.integration.security.SecurityTagObject;
+
+@WebService(name = "UnitBasicDetailsService", targetNamespace = "http://service.units.retrieve.crs.integration.cio.gov.bh/")
+public class UnitBasicDetailsServiceImpl implements UnitBasicDetailsServiceInterface {
+	/**
+	 * Logger for this class
+	 */
+	private static final Logger logger = LoggerFactory.getLogger(UnitBasicDetailsServiceImpl.class);
+
+	@Autowired
+	private ValidationServiceImpl validationUtil;
+	@Autowired
+	private CRSServicesProviderServiceImpl crsService;
+
+	@WebMethod(exclude = true)
+	public CRSServicesProviderServiceImpl getCrsService() {
+		return crsService;
+	}
+
+	@Override
+	@Secured({ "ROLE_getUnitBasicDetails" })
+	@WebMethod(operationName = "GetUnitBasicDetails")
+	public UnitDetailsInfoDTO getUnitDetails(SecurityTagObject security, Integer unitNumber, Integer unitOwnerNumber)
+			throws ApplicationExceptionInfo {
+		
+		if (logger.isDebugEnabled())
+			logger.debug("getUnitDetails(Integer) - start");
+		UnitDetailsInfoDTO returnedDetails = null;
+
+		if ((unitNumber >= 71000000 && unitNumber <= 71999999)
+				|| (unitNumber >= 73000000 && unitNumber <= 73999999)
+				|| (unitNumber >= 77000000 && unitNumber <= 77599999)
+				|| (unitNumber >= 77700000 && unitNumber <= 77799999)
+				|| (unitNumber >= 72000000 && unitNumber <= 72999999)
+				|| (unitNumber >= 76010001 && unitNumber <= 76019999)
+				|| (unitNumber >= 79400000 && unitNumber <= 79499999)
+				|| (unitNumber >= 80000000 && unitNumber <= 80999999)) {
+
+			UnitAddressInfoDTO unitAddress = null;
+			ArrayList<UnitBrancheDTO> branchesDeatils = null;
+			ArrayList<UnitMainActivityDTO> unitMainActivity = null;
+			UnitService us = getCrsService().getUnitServiceRef();
+			UnitInfo unitBasicInfo = null;
+			ArrayList<UnitActivity> unitActivities = null;
+			ArrayList<UnitInfo> unitBranches = null;
+			PersonBasicInfo pbi = null;
+			ArrayList<UnitEntity> ownerNumbers = null;
+			List<bh.gov.cio.crs.model.unit.UnitAddress> addresses = null;
+			boolean isCorrectOwner = false;
+			try {
+				unitBasicInfo = us.getUnitBasicInfo(unitNumber);
+				unitActivities = (ArrayList<UnitActivity>) us.getUnitActivities(unitNumber);
+				unitBranches = (ArrayList<UnitInfo>) us.getUnitBranches(unitNumber);
+				ownerNumbers = (ArrayList<UnitEntity>) us.getUnitOwner(unitNumber);
+				logger.debug("getUnitDetails(Integer) - Owners: {}",ownerNumbers);
+				for (UnitEntity owner : ownerNumbers) {
+					if (owner.getEntityNumber() != null && owner.getEntityNumber().equals(unitOwnerNumber))
+						isCorrectOwner = true;
+				}
+				// pbi = (ownerNumber != null) ?
+				// ps.getPersonBasicInfo(ownerNumber) : null;
+				addresses = us.getUnitAddresses(unitNumber);
+			} catch (final Exception exception) {
+				exception.printStackTrace();
+			}
+			if (!isCorrectOwner)
+				throw new ApplicationExceptionInfo("Owner number mismatch",
+						new bh.gov.cio.integration.exception.ApplicationException("Owner number mismatch", "002"));
+			Integer noOfBranches = (unitBranches != null) ? unitBranches.size() : 0;
+			unitMainActivity = new ArrayList<UnitMainActivityDTO>();
+
+			for (UnitActivity unitActivity : unitActivities) {
+				UnitMainActivityDTO mainActivity = new UnitMainActivityDTO(unitActivity.getMainActivityArNm(),
+						unitActivity.getMainActivityEnNm(), unitActivity.getDetailedActivityArNm(),
+						unitActivity.getDetailedActivityEnNm());
+				unitMainActivity.add(mainActivity);
+			}
+			branchesDeatils = new ArrayList<UnitBrancheDTO>();
+			branchesDeatils.add(new UnitBrancheDTO("", ""));
+//			for (UnitInfo unitInfo : unitBranches) {
+//				branchesDeatils.add(new UnitBrancheDTO(unitInfo.getUnitArabicName(), unitInfo.getUnitEnglishName()));
+//			}
+
+			logger.debug("Owner : " + ownerNumbers);
+			String unitArabicName = unitBasicInfo.getUnitArabicName();
+			String unitEnglishName = unitBasicInfo.getUnitEnglishName();
+			String ownerArabicName = pbi != null ? pbi.getArabicName() : "";
+			String ownerEnglishName = pbi != null ? pbi.getEnglishName() : "";
+
+			if (addresses != null) {
+				final bh.gov.cio.crs.model.unit.UnitAddress returnedAddressRow = addresses.get(addresses.size() - 1);
+				unitAddress = new UnitAddressInfoDTO(returnedAddressRow.getBlockNumber(),
+						returnedAddressRow.getBuildingNumber(), returnedAddressRow.getAlpha(),
+						returnedAddressRow.getRoadNumber(), returnedAddressRow.getFlatNumber());
+			}
+
+			returnedDetails = new UnitDetailsInfoDTO(unitNumber, unitArabicName, unitEnglishName, ownerArabicName,
+					ownerEnglishName, unitAddress, unitMainActivity, noOfBranches, branchesDeatils);
+
+			if (logger.isDebugEnabled())
+				logger.debug("getUnitDetails(Integer) - end");
+		} else {
+			throw new ApplicationExceptionInfo("Unit Number Out Of Range",
+					new bh.gov.cio.integration.exception.ApplicationException("Unit Number Out Of Range", "001"));
+		}
+
+		return returnedDetails;
+	}
+
+	@WebMethod(exclude = true)
+	public ValidationServiceImpl getValidationUtil() {
+		return validationUtil;
+	}
+
+	@WebMethod(exclude = true)
+	public void setCrsService(CRSServicesProviderServiceImpl crsService) {
+		this.crsService = crsService;
+	}
+
+	@WebMethod(exclude = true)
+	public void setValidationUtil(ValidationServiceImpl validationUtil) {
+		this.validationUtil = validationUtil;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+UnitBasicDetailsServiceInterface
+
+
+package bh.gov.cio.integration.crs.retrieve.units.service;
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
+import javax.xml.bind.annotation.XmlElement;
+
+import bh.gov.cio.integration.crs.retrieve.units.service.dto.UnitDetailsInfoDTO;
+import bh.gov.cio.integration.exception.ApplicationExceptionInfo;
+import bh.gov.cio.integration.security.SecurityTagObject;
+
+@WebService(name = "UnitBasicDetailsService", targetNamespace = "http://service.units.retrieve.crs.integration.cio.gov.bh/")
+public interface UnitBasicDetailsServiceInterface
+{
+	@WebResult(name = "UnitBasicDetails")
+	@WebMethod(operationName = "GetUnitBasicDetails")
+	UnitDetailsInfoDTO getUnitDetails(@WebParam(mode = WebParam.Mode.IN, name = "Security",
+			header = true) SecurityTagObject security,
+			@WebParam(name = "unitNumber") @XmlElement(required = true) Integer unitNumber)
+			throws ApplicationExceptionInfo;
+
+}
+
+
+
+
+UnitBasicDetailsDTO
+
+
+package bh.gov.cio.integration.crs.retrieve.units.service.dto;
+
+import java.util.List;
+
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(name = "UnitBasicDetails", propOrder =
+{ "unitNumber", "unitArabicName", "unitEnglishName", "unitSectorcode", "unitSectorNameAr", "unitSectorNameEn", 
+  "unitMainActivityCode", "unitMainActivityNameAr", "unitMainActivityNameEn", "unitOwnerNumbers","unitOwnerType", 
+  "unitOperationDate", "unitCloseDate", "UnitAddressDetails"})
+public class UnitBasicDetailsDTO
+{
+	private Integer unitNumber;
+	private String unitArabicName;
+	private String unitEnglishName;
+	private List<UnitAddressDetailsDTO> unitAddressDetails;
+	
+
+	public UnitBasicDetailsDTO()
+	{
+		super();
+	}
+
+	public UnitBasicDetailsDTO(Integer unitNumber, String unitArabicName, String unitEnglishName, List<UnitAddressDetailsDTO> unitAddressDetails)
+	{
+		super();
+		this.unitNumber = unitNumber;
+		this.unitArabicName = unitArabicName;
+		this.unitEnglishName = unitEnglishName;
+		this.unitAddressDetails = unitAddressDetails;
+	}
+
+	
+	public List<UnitAddressDetailsDTO> getUnitAddressDetails() {
+		return unitAddressDetails;
+	}
+
+	public void setUnitAddressDetails(List<UnitAddressDetailsDTO> unitAddressDetails) {
+		this.unitAddressDetails = unitAddressDetails;
+	}
+
+	public String getUnitArabicName()
+	{
+		return unitArabicName;
+	}
+
+	public String getUnitEnglishName()
+	{
+		return unitEnglishName;
+	}
+
+	public Integer getUnitNumber()
+	{
+		return unitNumber;
+	}
+
+	public void setUnitArabicName(String unitArabicName)
+	{
+		this.unitArabicName = unitArabicName;
+	}
+
+	public void setUnitEnglishName(String unitEnglishName)
+	{
+		this.unitEnglishName = unitEnglishName;
+	}
+
+	public void setUnitNumber(Integer unitNumber)
+	{
+		this.unitNumber = unitNumber;
+	}
+
+}
+
+
+
+UnitAddressDetailsDTO
+
+package bh.gov.cio.integration.crs.retrieve.units.service.dto;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlType(name = "UnitAddressDetails", propOrder = { "flatNumber", "roadNumber", "buildingNumber","blockNumber",
+		"area", "poBox", "phoneNumber", "email"})
+public class UnitAddressDetailsDTO {
+
+	private Integer blockNumber;
+	private Integer buildingNumber;
+	private String area;
+	private Integer roadNumber;
+	private Integer flatNumber;
+
+	private Integer poBox;
+	private Integer phoneNumber;
+	private Integer email;
+	
+	public UnitAddressDetailsDTO(Integer blockNumber, Integer buildingNumber, String nameAlphaEnglish, Integer roadNumber,
+			Integer flatNumber) {
+		super();
+		this.blockNumber = blockNumber;
+		this.buildingNumber = buildingNumber;
+		
+		this.roadNumber = roadNumber;
+		this.flatNumber = flatNumber;
+		
+		this.area = area;
+		this.poBox = poBox;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+		
+	}
+
+	public String getArea() {
+		return area;
+	}
+
+	public void setArea(String area) {
+		this.area = area;
+	}
+
+	public Integer getPoBox() {
+		return poBox;
+	}
+
+	public void setPoBox(Integer poBox) {
+		this.poBox = poBox;
+	}
+
+	public Integer getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Integer phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Integer getEmail() {
+		return email;
+	}
+
+	public void setEmail(Integer email) {
+		this.email = email;
+	}
+
+	public UnitAddressDetailsDTO() {
+		super();
+	}
+
+	@XmlElement(name = "blockNumber", required = true)
+	public Integer getBlockNumber() {
+		return blockNumber;
+	}
+
+	public void setBlockNumber(Integer blockNumber) {
+		this.blockNumber = blockNumber;
+	}
+
+	@XmlElement(name = "buildingNumber", required = true)
+	public Integer getBuildingNumber() {
+		return buildingNumber;
+	}
+
+	public void setBuildingNumber(Integer buildingNumber) {
+		this.buildingNumber = buildingNumber;
+	}
+
+	@XmlElement(name = "nameAlphaEnglish", required = true)
+	public String getNameAlphaEnglish() {
+		return nameAlphaEnglish;
+	}
+
+	public void setNameAlphaEnglish(String nameAlphaEnglish) {
+		this.nameAlphaEnglish = nameAlphaEnglish;
+	}
+
+	@XmlElement(name = "roadNumber", required = true)
+	public Integer getRoadNumber() {
+		return roadNumber;
+	}
+
+	public void setRoadNumber(Integer roadNumber) {
+		this.roadNumber = roadNumber;
+	}
+
+	@XmlElement(name = "flatNumber", required = true)
+	public Integer getFlatNumber() {
+		return flatNumber;
+	}
+
+	public void setFlatNumber(Integer flatNumber) {
+		this.flatNumber = flatNumber;
+	}
+
+}
