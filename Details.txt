@@ -1,0 +1,498 @@
+P@ssw0rd
+
+Tel.: +973 17 387 465 
+
+source="/NGI/PortalPlus/SCApplication/SCApplication.log"
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+My System Details:
+IP       : 10.71.13.62 (89.31.193.201 - Public IP)
+Username : thpbsm
+Password : 
+
+Local broker      - NGIBROKER , NGIQMGR
+Execution Groups  - SUDHAN  - 7801 (SOAP - Http) - 7080(HTTP -rest)
+                  - default - 7802
+				  - TEST2 - 7800
+				  
+1) http://git.iga.gov.bh/users/sign_in - thpbsm , password1234
+2) http://splunk.cio.gov.bh/en-US/app/search/search - sudhakar , password 
+3) https://us-east-2.signin.aws.amazon.com/oauth?SignatureVersion=4&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJMOATPLHVSJ563XQ&X-Amz-Date=2019-02-25T09%3A54%3A05.297Z&X-Amz-Signature=9d79e4c7e77d7d51f02401d2ed2ce457ea883824b59c72365765f0e982ccdb7f&X-Amz-SignedHeaders=host&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fhomepage&redirect_uri=https%3A%2F%2Fus-east-2.console.aws.amazon.com%2Fconsole%2Fhome%3Fregion%3Dus-east-2%26state%3DhashArgs%2523%26isauthcode%3Dtrue&region=us-east-2&response_type=code&state=hashArgs%23
+- igadev , th_Sudhakar@iga.gov.bh , password1234
+4) AWS - Personal -537814336570,  sudhan, msudhakar086@gmail.com., Apple@1234
+5) http://graylog.iga.gov.bh/ - th_Sudhakar@iga.gov.bh , GrayLog4NGI
+6) http://development.cio.gov.bh:8888/svn/esb/branches/maven/cio-crs-esb - sudhakar , 123456789
+				  
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SMTP server 10.10.94.3:25
+
+TEST / Dev Server  : MB7BROKER / MB7QMGR                                                    IIB 10.11.1.21:4414 server name : TNGIIIB, user : iibadmin, pwd :t35tiib@dmin
+                   10.71.67.6  2414   
+                   wmbadmin / ng14eGAt$tbrk
+
+Execution Groups  -  DEVEXEGRP - 7844 (https) 
+                  -  SUDHAKAR  - SOAP NODES - 7850 (https) , 7851 (http) (http node- 7080)
+                  -  TawasulV3 - 7857 (https)  7800(http)
+
+WPS  :  wpsadmin / wpsadmin  ->  http://10.71.67.5:10000/GDTServiceWeb/sca/NGI_GDTBpelInterfaceExport1 
+WPS Console URL              ->  https://10.71.67.5:10003/ibm/console/logon.jsp
+
+
+Tawasul   :       7802 (http)
+                  http://10.71.67.6:7800/NGI_TawasulReportInterface
+                  http://10.71.67.6:7800/TawasulClient/sca/TawasulService    ->  mobile
+				  http://10.71.67.6:7800/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport  -> NationalComplaintsApproval (Always, http in test environment)
+                  
+				  http://10.71.67.5:10000/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport
+				  http://10.71.67.5:10000/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport/WEB-INF/wsdl/interfaces/NationaleComplaints_ApprovalClientInterfaceExport.wsdl - NationalComplaintsApproval backend 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+https://ngi.esb.stg.gov.bh:7848/GDT/DrivingSchoolServices?wsdl
+                                                                
+STAGING Server  :        10.71.67.72   -  load bal              7848  -  portal      (http - 7800 , DMZ - 7803)
+                                                                7856  -  KIOSK       (http - 7811)
+                         10.71.66.5    -  thpbsm/thpbsm1234	    7854  -  mobile      (http - 7809)
+                         10.71.66.6    -  thpbsm/thpbsm1234	    7855  -  tawasul  - NationalComplaintsApproval (wrapper)
+		wmbadmin - Thbs123! (pwd changed by syed)               7853  -  SADAD       (http - 7804)
+ 
+ 
+WPS :    wpsadmin  /  wpsadmin  
+			   load bal - 10.71.66.69      - wps 
+						- 10.71.66.37      - wps
+				        - 10.71.66.38      - wps			  
+			    
+WPS Console URL  ->     https://10.71.66.69:10001/ibm/console/logon.jsp
+GDT - http://10.71.66.38/GDTServiceWeb/sca/NGI_GDTBpelInterfaceExport1
+
+Tawasul   :        ->   https://10.71.67.72:7855/NGI_TawasulReportInterface
+				   ->   https://10.71.67.72:7855/TawasulClient/sca/TawasulService     ->  mobile 
+						
+						http://10.71.66.37:19080/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport	OR 
+						http://10.71.66.37:80/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport    - WPS - NationalComplaintsApproval	
+
+IIB
+10.11.29.83
+10.11.6.50
+10.11.6.51
+user : ngilogusr (for logs , \\10.11.6.51\NGI_logs) , ngistgusr
+pwd : ngilogpasswd(for logs) , ngistgusr4all
+
+BPM : 10.11.29.85
+10.11.6.54
+10.11.6.55
+user: ngistgusr
+pwd: ngistgusr4all
+
+
+7848  -  portal      (http - 7800 , DMZ - 7803)
+7856  -  KIOSK       (http - 7811)
+7854  -  mobile      (http - 7809)
+7855  -  tawasul  - NationalComplaintsApproval (wrapper)
+7853  -  SADAD       (http - 7804)
+	  					
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+					
+PRODUCTION Server   :       10.71.67.71  -  load bal                        7847  -  portal  (http -  , DMZ - 7803)
+																			7856  -  portal1 (http - 7801)
+							10.71.65.5 node1 - prodngiusr/gbm4all		    7845  -  KIOSK   (http - 7800)
+					        10.71.65.6 node1 - prodngiusr/gbm4all           7858  -  mobile  (http - 7805 ) 
+							                                                7843  -  mobile pre production (http - 7812)
+						                                                    7854  -  tawasul
+																			7855  -  tawasul  - NationalComplaintsApproval 
+																				  -  SADAD   (http - 7809)
+                          		
+WPS : 
+IP: 10.71.65.37 
+    10.71.65.38
+User: prodwpsusr password : gbm4all
+Log Path: /var/wpsadmin/BPEL_LOGS
+
+Tawasul :    -> https://10.71.65.6:7858/MOBILE/TawasulClient/sca/TawasulService                -> NGI - Mobile
+			 -> http://10.71.65.38:80/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport  -> NationalComplaintsApproval
+			 
+			 
+IIB 
+++++++++++
+10.10.162.80 - ngiprdusr - ngiprdusr4all
+10.10.162.81
+
+			 
+					  
+
+###############
+#ExecutionGrop#PortNumber(HTTPS, HTTP)
+#EXEGRP1: 7843
+#MOBILE_EXE_GRP: 7858
+#EXEGRP_EXT_SERVICES: 7844
+#TawasulV30: 7854, 7802
+#PORTALPLUS_EXEGRP_DMZ: 7846, 7803
+#PORTALPLUS_EXEGRP_BPEL: 7847, 7804
+#PORTALPLUS_EXEGRP_BPEL1: 7856
+#EXEGRP_EXT_SERVICES1: 7848
+#EXEGRP_EXT_SERVICES2: 7849
+#EXEGRP_EXT_SERVICES3: 7850
+#EXEGRP_EXT_SERVICES4: 7851
+#EXEGRP_EXT_SERVICES5: 7852
+#BLISEXEGRP: 7853, 7810
+#ComplaintsApprovalV3: 7855
+#KIOSK_EXE_GRP: 7845
+###############					  
+					  
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Project Requirement Documents  ->   \\file\NGI Artifacts\Projects\Portal Plus Services\
+Project Code Base              ->   Clear Case   	
+Deployables bar file           ->   /temp/Deployables
+WPS Logs                       ->   /var/wpsadmin/BPEL_LOGS/GDTServiceLogs
+NGI Logs   		               ->   /NGI 
+
+Shared classes                 ->   /var/mqsi/shared-classes
+System Logs                    ->   /var/logs/message
+Broker Logs                    ->   /var/mqsi/components/MB7BROKER			
+Exception Logs                 -> 	/NGI/ProcessedFiles
+Twasoul User defind properties ->   mqsireportproperties MB7BROKER -c UserDefined -o EGAComplaintsSystemConfig -r 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+NGI Data base :  Production
+	    DB IP: 10.10.244.109 Port: 60000 DB: NGI_PROD
+
+NGI Data base :  Staging
+		DB IP: 10.10.189.77 Port: 60000 DB: NGI_STAG
+
+
+NGI Data base :  test server
+	ServerName/IP : 10.10.188.72
+	Port : 60000
+	DB Name : NGI_TEST
+	User Name : ngiapp
+	Password : Ngi@app@
+    connection url : jdbc:db2://10.10.188.72:60000/NGI_TST
+    driver classes :  COM.ibm.db2os390.sqlj.jdbc.DB2SQLJDriver	
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+PORTAL  : 	ngigdtuser       |   XI1WGj)x          |    ngigdtuser123
+MOBILE  : 	mobileegauser    |   m0b1leu$erp@ss    |    m0b1lep@s5w0rd     		
+KIOSK   : 	kkegauser        |   kku$erp@ss        |    k1o$kp@s5w0rd 
+SADAD   :   sadadegauser     |   s@d@du$erp@ss     |  
+
+<soapenv:Header>														
+  <wsse:Security soapenv:actor="ngi" soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">														
+   <wsse:UsernameToken wsu:Id="UsernameToken-257" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">														
+    <wsse:Username>ngigdtuser</wsse:Username>														
+    <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">XI1WGj)x</wsse:Password>														
+   </wsse:UsernameToken>														
+  </wsse:Security>														
+</soapenv:Header>		
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+WPS - Tawasul
+
+<wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+         <wsse:UsernameToken wsu:Id="UsernameToken-1">
+            <wsse:Username>egaccu1</wsse:Username>
+            <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">password</wsse:Password>
+            <wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">VtXNPt+EOx3J9pVb940uXA==</wsse:Nonce>
+            <wsu:Created>2015-04-15T11:53:37.399Z</wsu:Created>
+         </wsse:UsernameToken>
+</wsse:Security>
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+GDT - Staging and Production
+ 
+  <ser:Security>	
+     <UsernameToken>	
+        <Username>eGOVPort</Username>	
+        <Password>9NFyi+2Ut5TZCHYnjVsY1HswxNs=</Password>	
+     </UsernameToken>	
+  </ser:Security>
+  
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+NVR  : 
+
+nvr.upload.ftpServer=10.44.60.174	21		
+nvr.upload.ftpServer.rootFolder=NVR				
+nvr.upload.ftpServer.UserName=vehiclereg			
+nvr.upload.ftpServer.Password=gdt.VReg#PK	
+	
+/eComplains/Production/GDTAttachments/NVR/Temp/		
+/eComplains/Staging/GDTAttachments/NVR/Uploaded	
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+EWA GO Bill - Email template path test:
+/var/wmbadmin/NGINotifications/template/EWAGoEbill/email
+
+
+GDT
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+https://staginggdt.gov.bh/
+
+username  manager   
+password   db2admin
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Barcode::
+------------
+java -jar /var/mqsi/shared-classes/GenerateBarcodeImage.jar sudhakar
+
+http://ngi.bpm.prd.gov.bh/BarCodeServlet/BarCodeGenerator?barCodeNum=878787
+http://ngi.bpm.stg.gov.bh/BarCodeServlet/BarCodeGenerator?barCodeNum=878787
+
+create jar - 
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+GDT 
+
+LicenseCategoryCode - 1-Especially (Private),2-Private transfer, 4- motorcycle, 5-public transport
+LicenseTypeCode - 1 Learner license renewal ,2-Full
+
+DLR
+--------------------------------------------------------------
+LicenseCategoryCode  = 1 or 4 - allow renewal if match with input value 1,4
+not validating LicenseTypeCode
+
+IF(LicenseStatusCode = '1' OR LicenseStatusCode = '3')THEN - allow renewal
+		
+/** LICENSE_STATUS_CODE  NAME_ENGLISH
+								1			Valid
+								2			Cancelled
+								3			Suspended
+								4			Wanted
+								5	    	Invalid
+								6			Rejected **/
+								
+DASH board 
+------------------------------------------------------------------
+licenseCategoryCode = any
+not validating LicenseTypeCode	
+
+if(licenseCategoryCode.equalsIgnoreCase("2") || licenseCategoryCode.equalsIgnoreCase("3") || 
+	licenseCategoryCode.equalsIgnoreCase("5"))
+	{	
+			isLicenseRenewable = false;	 
+			isHeavyLicenseFound = true;
+			logs.debug("Heavy license category found: isLicenseRenewable: ",isLicenseRenewable);
+	}
+	
+VRR
+--------------------------------------------------------------------
+InsuranceDueDate >= futureRenewalDate     
+
+NewNextRenewalDate
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+GDT - Retrieve Details - Test Data 
+651203686
+710802935
+791200906
+	690802439
+	810801698
+981207260
+
+980508576
+970604092
+960903720
+960110216
+951108581
+960212914
+970300697 - 2 decimal 
+550111816
+7637001
+710801
+710802935
+800700015
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+SFB
+
+version draft 7/6 - save 
+version empty 5/8 - submit
+
+As far as Protiviti interface is considered, below applies for a service record:
+•	every SUBMIT(user click submit in FE)  is considered as “Publish” request, and thus it will be versioned and called as Published version. Subsequent SUBMIT calls to the same service will increment version and history will be maintained.
+•	every SAVE(user click save in FE)  is considered as “Draft” request, and thus it will be stored and called as draft. Subsequent SAVE calls will overwrite existing draft. Always last submitted is the latest.
+
+For the following cases, ensure FE send the request as below:
+--Case: Submitting a new "draft"[SAVE]. Request portal to send the "Id as empty & Version=0"
+--Case: Submitting a new "service"[SUBMIT]. Request portal to send the " Id as empty & Version as empty"
+--Case: Editing existing service(any published version) and submitting as "draft" [Version-SAVE]. Request portal to send the service Id in "Id" param & Version=0"
+--Case: Editing existing service(any published version) and submitting again as "service" [Version-SUBMIT]. Request portal to send the service Id in "Id" param & Version as empty"
+--Case: Editing existing draft(service draft/fresh draft) and submitting again as "draft" [Draft-SAVE]. Request portal to send the draft Id in "Id" param & Version=0"
+--Case: Editing existing draft(service draft/fresh draft) and submitting as "service" [Draft-SUBMIT]. Request portal to send the draft Id in "Id" param & Version as empty"
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+index="ngi_portal" source="/NGI/GDTDashboardServiceLogs/GDT_DASHBOARD_SERVICE_LOG.log"
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Contacts details :
+++++++++++++
+Zahra : 482
+Wafa  : 7371
+Haifa : 7367
+May   : 489
+lulwa : 506
+Balooshi : 499
+Shishani : 515
+Thiyan : 510
+venkat : 465
+sharmila : 285
+shayma : 7394
+syed : 7561
+shyma : 7394
+saurab : 481
+
+++++++++++++++++++
+https://10.11.1.21:7847/GDTServiceWeb/sca/NGI_GDTBpelInterfaceExport1
+
+http://tstsrv.bahrain.bh/wps/portal/gdt_en
+http://tstsrv.bahrain.bh/wps/portal/SmartCard_en
+http://stgsrv.bahrain.bh/wps/portal/SmartCard_en
+http://tstsrv.bahrain.bh/wps/portal/drivingschool_en
+Insurance Quotation 
+http://tstsrv.bahrain.bh/wps/portal/VehicleInsurance_en
+
+NGI_SubmitPostalTracking - MTT Update - (MOH - UpdateCertificatePaymentAndMOT)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+MTT
+------
+http://192.168.202.2/MOTInsertPostDetails/InsertPostalDetails.svcl
+http://10.36.1.9:81/InsertPostDetails/InsertPostalDetails.svc
+
+MOH - wrapper 
+---------------
+https://10.71.66.6:7848/eBirth/IssueOfBirthCertificateSOAP12
+
+https://10.71.67.72:7848/NGI_eBirth_UpdateCertificatePaymentAndMOT
+https://10.71.67.72:7856/KIOSK/NGI_eBirth_UpdateCertificatePaymentAndMOT
+
+PRODUCTION URL : https://10.71.67.71:7847/NGI_eBirth_UpdateCertificatePaymentAndMOT
+PRODUCTION URL : https://10.71.67.71:7845/KIOSK/NGI_eBirth_UpdateCertificatePaymentAndMOT
+
+http://10.71.67.72:7803/NGI_UpdateMOT
+http://localhost:7803/NGI_UpdateMOT
+
+
+PostalTracking
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+http://192.168.202.2/MOT-PostalTrackingServiceV2/PostalTrackingServiceV2.asmx
+http://10.36.1.9:81/MOTPostalTrackingServiceV2/PostalTrackingServiceV2.asmx
+
+https://10.71.67.72:7848/NGIPostalTrackingService/PostalTrackingServiceSOAP
+https://10.71.67.72:7856/KIOSK/NGIPostalTrackingService/PostalTrackingServiceSOAP
+https://10.71.67.72:7854/MOBILE/NGIPostalTrackingService/PostalTrackingServiceSOAP
+
+PRODUCTION URL : https://10.71.67.71:7847/NGIPostalTrackingService/PostalTrackingServiceSOAP
+PRODUCTION URL : https://10.71.67.71:7845/KIOSK/NGIPostalTrackingService/PostalTrackingServiceSOAP
+PRODUCTION URL : https://10.71.67.71:7858/MOBILE/NGIPostalTrackingService/PostalTrackingServiceSOAP
+
+
+3FactorLogin
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+http://10.10.1.105/cio-crs-esb/svc/ValidateBasicPersonInfoService.svc
+http://10.11.30.18/cio-crs-esb/svc/ValidateBasicPersonInfoService.svc
+
+https://10.71.67.72:7848/NGIWrapper/3FactorLogin
+PRODUCTION URL : https://10.71.67.71:7855/NGIWrapper/3FactorLogin
+
+
+PropertyContractRegistration
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+http://192.168.202.2/MOJ-LeaseContract/PropertyContractRegistrationService.asmx
+http://10.10.1.105/cio-crs-esb/svc/CheckValidAddressService.svc
+http://10.51.10.26:8080/IGAMunicipalityProvider/egaService
+
+http://10.10.162.20/PropertyContractRegistrationSRV/PropertyContractRegistrationService.asmx
+http://10.11.30.18/cio-crs-esb/svc/CheckValidAddressService.svc
+http://192.168.127.31/EGAService/egaService
+
+https://10.71.67.72:7848/BPELWrapper/PropertyContractRegistrationServiceWeb/sca/NGI-PropertyContractRegServiceExport1
+PRODUCTION URL : https://10.71.67.71:7847/BPELWrapper/PropertyContractRegistrationServiceWeb/sca/NGI-PropertyContractRegServiceExport1
+
+
+eBillBPELWrapper
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ (WPS)
+com.ngi.eBillBPELWrapperFlow#Call_ValidatePayment_Min.webServiceURL=http://192.168.202.2/EWAeBill/eBillServiceLibrary.eBillService.svc
+com.ngi.eBillBPELWrapperFlow#Call_eBill_DMZService.webServiceURL=http://localhost:7803/secured/eBillServiceMultipleAccounts/eBillServiceLibrary.eBillServiceSOAP
+com.ngi.eBillBPELWrapperFlow#InvokeeBillingBPELServiceSOAP.webServiceURL=http://ngi.bpm.stg.gov.bh/eBilling_ModuleWeb/sca/eBillingBPELServiceExport1 (WPS)
+
+
+https://10.71.67.72:7848/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELServiceSOAP
+https://10.71.67.72:7848/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELGetPDFSOAP
+https://10.71.67.72:7854/Mobile/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELServiceSOAP
+https://10.71.67.72:7854/Mobile/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELGetPDFSOAP
+
+
+PRODUCTION URL : https://10.71.67.71:7847/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELServiceSOAP
+PRODUCTION URL : https://10.71.67.71:7847/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELGetPDFSOAP
+PRODUCTION URL : https://10.71.67.71:7858/Mobile/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELServiceSOAP
+PRODUCTION URL : https://10.71.67.71:7858/Mobile/BPELWrapper/eBilling_ModuleWeb/sca/eBillingBPELGetPDFSOAP
+
+
+EWA
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ (IVR)
+com.ngi.EWABPELWrapperFlow#Call_ValidatePayment_Min.webServiceURL=http://192.168.202.2/EWAeBill/eBillServiceLibrary.eBillService.svc
+com.ngi.EWABPELWrapperFlow#Call_EWA_DMZService.webServiceURL=http://localhost:7803/secured/EWA_ModuleWeb/sca/EWABillingServiceSOAP
+
+https://10.71.67.72:7848/BPELWrapper/EWA_ModuleWeb/sca/PayElectricityWaterBillServiceSOAP
+https://10.71.67.72:7856/KIOSK/EWA_ModuleWeb/sca/PayElectricityWaterBillService
+https://10.71.67.72:7854/Mobile/EWA_ModuleWeb/sca/PayElectricityWaterBillService
+
+PRODUCTION URL : https://10.71.67.71:7847/BPELWrapper/EWA_ModuleWeb/sca/PayElectricityWaterBillServiceSOAP
+PRODUCTION URL : https://10.71.67.71:7845/KIOSK/EWA_ModuleWeb/sca/PayElectricityWaterBillService
+PRODUCTION URL : https://10.71.67.71:7858/Mobile/EWA_ModuleWeb/sca/PayElectricityWaterBillService
+
+
+EGAComplaints
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+https://10.71.67.72:7855/NationaleComplaintsWeb/sca/EGAComplaintsInterface
+PRODUCTION URL : https://10.71.67.71:7854/NationaleComplaintsWeb/sca/EGAComplaintsInterface
+
+
+NatinalComplaintsV30
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+https://10.71.67.72:7855/TawasulClient/sca/TawasulService
+https://10.71.67.72:7855/MOBILE/TawasulClient/sca/TawasulService
+
+PRODUCTION URL : https://10.71.67.71:7854/TawasulClient/sca/TawasulService
+PRODUCTION URL : https://10.71.67.71:7858/MOBILE/TawasulClient/sca/TawasulService
+
+
+NationalComplaintsApproval
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+STAGING URL : https://10.71.67.72:7855/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport
+PRODUCTION URL : https://10.71.67.71:7855/NationaleComplaintsWeb/sca/ApprovalClientInterfaceExport
+
+
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+V7 DB details: old _ backup
+
+
+NGI Data base :  Production
+				 IP Address: 192.168.24.3 60000  Environment: VPRODUCTION  DBName: EGOVPROD      DataUser: Vportal 
+								 
+NGI Data base :  Staging
+				-- IP Address: 192.168.185.7 50001  Environment: Staging PP  DBName: EGOVST User Name : ngidbusr
+				 DataUser: Vportal 
+				
+                -- new staging AWS	
+				IP Address: 10.240.20.127 (Primary) , 10.240.21.66 (Secondary) 60005  Environment: Staging PP  DBName: EGOVST  User Name : ngidbusr
+				
+				-- new NGI Staging , DB IP : 10.10.189.77, Port: 60000, DB: NGI_STG
+
+NGI Data base :  test server
+	ServerName/IP : 10.240.20.148
+	Port : 60011
+	DB Name : EGOVT
+	User Name : ngidbusr
+	Password : NGI@2016T
+    connection url : jdbc:db2://10.240.20.148:60011/EGOVT
+    driver classes :  COM.ibm.db2os390.sqlj.jdbc.DB2SQLJDriver	
+
+
+
