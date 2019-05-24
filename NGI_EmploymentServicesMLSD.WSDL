@@ -1,0 +1,1642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="NGIEmploymentServicesMLSD" 
+ targetNamespace="http://ngi.mlsd.com/NGIEmploymentServicesMLSD/"
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+ xmlns:tns="http://ngi.mlsd.com/NGIEmploymentServicesMLSD/"
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ngi.mlsd.com/NGIEmploymentServicesMLSD/">
+         <xsd:element name="ValidateUserEligibilityAndGetProfileDetailsRequest" type="tns:ValidateUserEligibilityAndGetProfileDetailsReqType"/>
+         <xsd:element name="ValidateUserEligibilityAndGetProfileDetailsResponse" type="tns:ValidateUserEligibilityAndGetProfileDetailsResType"/>
+         
+         <xsd:element name="SavePersonalDetailsRequest" type="tns:SavePersonalDetailsReqType"/>
+         <xsd:element name="SavePersonalDetailsResponse" type="tns:SavePersonalDetailsResType"/>
+         
+         <xsd:element name="LKUPPersonalSkillsRequest" type="tns:LKUPPersonalSkillsReqType"/>
+         <xsd:element name="LKUPPersonalSkillsResponse" type="tns:LKUPPersonalSkillsResType"/>
+         <xsd:element name="SavePersonalSkillsRequest" type="tns:SavePersonalSkillsReqType"/>
+         <xsd:element name="SavePersonalSkillsResponse" type="tns:SavePersonalSkillsResType"/>
+         
+         <xsd:element name="LKUPLicenseTypeRequest" type="tns:LKUPLicenseTypeReqType"/>
+         <xsd:element name="LKUPLicenseTypeResponse" type="tns:LKUPLicenseTypeResType"/>
+         <xsd:element name="LKUPLicenseCategoryRequest" type="tns:LKUPLicenseCategoryReqType"/>
+         <xsd:element name="LKUPLicenseCategoryResponse" type="tns:LKUPLicenseCategoryResType"/>
+         <xsd:element name="LKUPLicenseListRequest" type="tns:LKUPLicenseListReqType"/>
+         <xsd:element name="LKUPLicenseListResponse" type="tns:LKUPLicenseListResType"/>
+         <xsd:element name="SaveLicenseDetailsRequest" type="tns:SaveLicenseDetailsReqType"/>
+         <xsd:element name="SaveLicenseDetailsResponse" type="tns:SaveLicenseDetailsResType"/>
+         
+         <xsd:element name="LKUPChronicDiseasesRequest" type="tns:LKUPChronicDiseasesReqType"/>
+         <xsd:element name="LKUPChronicDiseasesResponse" type="tns:LKUPChronicDiseasesResType"/>
+         <xsd:element name="LKUPChronicDiseasesLevelsRequest" type="tns:LKUPChronicDiseasesLevelsReqType"/>
+         <xsd:element name="LKUPChronicDiseasesLevelsResponse" type="tns:LKUPChronicDiseasesLevelsResType"/>
+         <xsd:element name="SaveChronicDiseasesDetailsRequest" type="tns:SaveChronicDiseasesDetailsReqType"/>
+         <xsd:element name="SaveChronicDiseasesDetailsResponse" type="tns:SaveChronicDiseasesDetailsResType"/>
+         
+         <xsd:element name="LKUPNationalityRequest" type="tns:LKUPNationalityReqType"/>
+         <xsd:element name="LKUPNationalityResponse" type="tns:LKUPNationalityResType"/>
+         <xsd:element name="LKUPEducationalQualificationsRequest" type="tns:LKUPEducationalQualificationsReqType"/>
+         <xsd:element name="LKUPEducationalQualificationsResponse" type="tns:LKUPEducationalQualificationsResType"/>
+         <xsd:element name="LKUPSpecializationRequest" type="tns:LKUPSpecializationReqType"/>
+         <xsd:element name="LKUPSpecializationResponse" type="tns:LKUPSpecializationResType"/>
+         <xsd:element name="LKUPEducationalInstitutionRequest" type="tns:LKUPEducationalInstitutionReqType"/>
+         <xsd:element name="LKUPEducationalInstitutionResponse" type="tns:LKUPEducationalInstitutionResType"/>
+         <xsd:element name="SaveEducationalDetailsRequest" type="tns:SaveEducationalDetailsReqType"/>
+         <xsd:element name="SaveEducationalDetailsResponse" type="tns:SaveEducationalDetailsResType"/>
+         
+         <xsd:element name="LKUPLanguagesListRequest" type="tns:LKUPLanguagesListReqType"/>
+         <xsd:element name="LKUPLanguagesListResponse" type="tns:LKUPLanguagesListResType"/>
+         <xsd:element name="LKUPLanguagesLevelsRequest" type="tns:LKUPLanguagesLevelsReqType"/>
+         <xsd:element name="LKUPLanguagesLevelsResponse" type="tns:LKUPLanguagesLevelsResType"/>
+         <xsd:element name="SaveLanguageSkillsDetailsRequest" type="tns:SaveLanguageSkillsDetailsReqType"/>
+         <xsd:element name="SaveLanguageSkillsDetailsResponse" type="tns:SaveLanguageSkillsDetailsResType"/>
+         
+         
+         <xsd:element name="LKUPTrainingFieldRequest" type="tns:LKUPTrainingFieldReqType"/>
+         <xsd:element name="LKUPTrainingFieldResponse" type="tns:LKUPTrainingFieldResType"/>
+         <xsd:element name="LKUPTrainingCertificatesTypeRequest" type="tns:LKUPTrainingCertificatesTypeReqType"/>
+         <xsd:element name="LKUPTrainingCertificatesTypeResponse" type="tns:LKUPTrainingCertificatesTypeResType"/>
+         <xsd:element name="LKUPTrainingInstitutionRequest" type="tns:LKUPTrainingInstitutionReqType"/>
+         <xsd:element name="LKUPTrainingInstitutionResponse" type="tns:LKUPTrainingInstitutionResType"/>
+         <xsd:element name="LKUPTrainingInstituteTypeRequest" type="tns:LKUPTrainingInstituteTypeReqType"/>
+         <xsd:element name="LKUPTrainingInstituteTypeResponse" type="tns:LKUPTrainingInstituteTypeResType"/>
+         <xsd:element name="SaveTrainingDetailsRequest" type="tns:SaveTrainingDetailsReqType"/>
+         <xsd:element name="SaveTrainingDetailsResponse" type="tns:SaveTrainingDetailsResType"/>
+         
+         <xsd:element name="LKUPJobFieldRequest" type="tns:LKUPJobFieldReqType"/>
+         <xsd:element name="LKUPJobFieldResponse" type="tns:LKUPJobFieldResType"/>
+         <xsd:element name="SaveRequiredJobsDetailsRequest" type="tns:SaveRequiredJobsDetailsReqType"/>
+         <xsd:element name="SaveRequiredJobsDetailsResponse" type="tns:SaveRequiredJobsDetailsResType"/>
+         
+         <xsd:element name="LKUPQuestionsRequest" type="tns:LKUPQuestionsReqType"/>
+         <xsd:element name="LKUPQuestionsResponse" type="tns:LKUPQuestionsResType"/>
+         <xsd:element name="SaveQuestionsDetailsRequest" type="tns:SaveQuestionsDetailsReqType"/>
+         <xsd:element name="SaveQuestionsDetailsResponse" type="tns:SaveQuestionsDetailsResType"/>
+         
+         
+         <xsd:element name="LKUPJobOrganizationNameRequest" type="tns:LKUPJobOrganizationNameReqType"/>
+         <xsd:element name="LKUPJobOrganizationNameResponse" type="tns:LKUPJobOrganizationNameResType"/>
+         <xsd:element name="LKUPJobSectorTypeRequest" type="tns:LKUPJobSectorTypeReqType"/>
+         <xsd:element name="LKUPJobSectorTypeResponse" type="tns:LKUPJobSectorTypeResType"/>
+         <xsd:element name="LKUPJobListRequest" type="tns:LKUPJobListReqType"/>
+         <xsd:element name="LKUPJobListResponse" type="tns:LKUPJobListResType"/>
+         <xsd:element name="LKUPJobLeaveReasonRequest" type="tns:LKUPJobLeaveReasonReqType"/>
+         <xsd:element name="LKUPJobLeaveReasonResponse" type="tns:LKUPJobLeaveReasonResType"/>
+         <xsd:element name="SaveWorkExperienceDetailsRequest" type="tns:SaveWorkExperienceDetailsReqType"/>
+         <xsd:element name="SaveWorkExperienceDetailsResponse" type="tns:SaveWorkExperienceDetailsResType"/>
+         
+         <xsd:element name="LKUPRequiredDocumentsRequest" type="tns:LKUPRequiredDocumentsReqType"/>
+         <xsd:element name="LKUPRequiredDocumentsResponse" type="tns:LKUPRequiredDocumentsResType"/>
+         <xsd:element name="SaveAttachmentsDetailsRequest" type="tns:SaveAttachmentsDetailsReqType"/>
+         <xsd:element name="SaveAttachmentsDetailsResponse" type="tns:SaveAttachmentsDetailsResType"/>
+         
+         <xsd:element name="GetAvailableAppointmentsDateRequest" type="tns:GetAvailableAppointmentsDateReqType"/>
+         <xsd:element name="GetAvailableAppointmentsDateResponse" type="tns:GetAvailableAppointmentsDateResType"/>
+         <xsd:element name="GetAvailableAppointmentsTimeRequest" type="tns:GetAvailableAppointmentsTimeReqType"/>
+         <xsd:element name="GetAvailableAppointmentsTimeResponse" type="tns:GetAvailableAppointmentsTimeResType"/>
+         <xsd:element name="GetAppointmentDetailsRequest" type="tns:GetAppointmentDetailsReqType"/>
+         <xsd:element name="GetAppointmentDetailsResponse" type="tns:GetAppointmentDetailsResType"/>
+         <xsd:element name="SaveAppointmentRequest" type="tns:SaveAppointmentReqType"/>
+         <xsd:element name="SaveAppointmentResponse" type="tns:SaveAppointmentResType"/>
+        
+         
+         
+         <xsd:complexType name="ValidateUserEligibilityAndGetProfileDetailsReqType">
+            <xsd:sequence>	                  
+                <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>	             
+            </xsd:sequence>
+	     </xsd:complexType>	     
+         <xsd:complexType name="ValidateUserEligibilityAndGetProfileDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                 	    <xsd:element minOccurs="0" name="ApplicantPersonalDetails" type="tns:ApplicantPersonalDtlsType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         <xsd:complexType name="ApplicantPersonalDtlsType">
+             <xsd:sequence>            
+               <xsd:element minOccurs="0" name="ApplicableServiceType" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="IsEligible" type="xsd:string"/>  
+               <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="SmartCardExpiryDate" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="NameAr" type="xsd:string"/>
+             </xsd:sequence>
+	    </xsd:complexType>
+
+
+         <xsd:complexType name="SavePersonalDetailsReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="SavePersonalDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>	    
+        
+         
+         <xsd:complexType name="LKUPPersonalSkillsReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPPersonalSkillsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+	     <xsd:complexType name="LKUPObjType">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="Code" type="xsd:string"/>               
+               <xsd:element minOccurs="0" name="DescAr" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="DescEn" type="xsd:string"/>
+            </xsd:sequence>
+	     </xsd:complexType> 
+	     
+	     
+	     <xsd:complexType name="SavePersonalSkillsReqType">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+               <xsd:element minOccurs="0" name="Code" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="MasterCode" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SavePersonalSkillsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="PersonalSkillMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+
+	         	         
+         <xsd:complexType name="LKUPLicenseTypeReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPLicenseTypeResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPLicenseCategoryReqType">
+            <xsd:sequence>
+            	<xsd:element minOccurs="0" name="LicenseTypeCode" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPLicenseCategoryResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPLicenseListReqType">
+            <xsd:sequence>
+            	<xsd:element minOccurs="0" name="LicenseCategoryCode" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPLicenseListResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveLicenseDetailsReqType">
+            <xsd:sequence>
+                <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="LicenseTypeCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="LicenseCategoryCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="LicenseListTypeCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="LicenseMasterCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveLicenseDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="LicenseMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPChronicDiseasesReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPChronicDiseasesResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPChronicDiseasesLevelsReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPChronicDiseasesLevelsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveChronicDiseasesDetailsReqType">
+            <xsd:sequence>
+                <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="ChronicDiseasesCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="ChronicDiseasesLevelCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="ChronicDiseasesDetails" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveChronicDiseasesDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="ChronicDiseasesMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+
+         
+         <xsd:complexType name="LKUPNationalityReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPNationalityResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPEducationalQualificationsReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPEducationalQualificationsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPSpecializationReqType">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="QualificationCode" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPSpecializationResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+
+         <xsd:complexType name="LKUPEducationalInstitutionReqType">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPEducationalInstitutionResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveEducationalDetailsReqType">
+            <xsd:sequence>
+                <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="QualificationCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="SpeciliazationCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="EducationalInstitutionCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="GPA" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="GPAOutOf" type="xsd:string"/>				
+				<xsd:element minOccurs="0" name="EducationalQualificationMasterCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveEducationalDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="EducationalQualificationMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPLanguagesListReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPLanguagesListResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPLanguagesLevelsReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPLanguagesLevelsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveLanguageSkillsDetailsReqType">
+            <xsd:sequence>
+	            <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="LanguageCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="OtherLanguageDesc" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="LanguageSpeakingLevelCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="LanguageReadingLevelCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="LanguageWritingLevelCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="LanguageMasterCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveLanguageSkillsDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="LanguageMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPTrainingFieldReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPTrainingFieldResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPTrainingCertificatesTypeReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPTrainingCertificatesTypeResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPTrainingInstitutionReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPTrainingInstitutionResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPTrainingInstituteTypeReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPTrainingInstituteTypeResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveTrainingDetailsReqType">
+            <xsd:sequence>
+                <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="TrainingFieldCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="TrainingCertificateTypeCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="TrainingInstitutionCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="TrainingProgramName" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="TrainingDateFrom" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="TrainingDateTo" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="TrainingMasterCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveTrainingDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="TrainingMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPJobFieldReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPJobFieldResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveRequiredJobsDetailsReqType">
+            <xsd:sequence>
+                <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="JobFieldCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="JobFieldPriority" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="JobFieldMasterCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>               
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveRequiredJobsDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="JobFieldMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPQuestionsReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPQuestionsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveQuestionsDetailsReqType">
+            <xsd:sequence>
+            	<xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="QuestionCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="QuestionsMasterCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>            
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveQuestionsDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="QuestionsMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPJobOrganizationNameReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPJobOrganizationNameResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPJobSectorTypeReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPJobSectorTypeResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPJobListReqType">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="JobSectorCode" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPJobListResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPJobLeaveReasonReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPJobLeaveReasonResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveWorkExperienceDetailsReqType">
+            <xsd:sequence>
+	            <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="EmployerCountryCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="JObSectorCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="EmployerName" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="ProfessionCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="JobLeaveReasonCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="JobDateFrom" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="JobDateTo" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="JobBasicSalary" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="WorkExperienceMasterCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="IsDelete" type="xsd:string"/>            
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveWorkExperienceDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="WorkExperienceMasterCode" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="LKUPRequiredDocumentsReqType">
+            <xsd:sequence/>
+         </xsd:complexType>
+         <xsd:complexType name="LKUPRequiredDocumentsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" maxOccurs="unbounded" name="LKUPObj" type="tns:LKUPObjType"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveAttachmentsDetailsReqType">
+            <xsd:sequence>
+                <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="AttachmentCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="AttachmentTypeCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="FileStream" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="FileBytes" type="xsd:string"/>				              
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveAttachmentsDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         
+         <xsd:complexType name="GetAvailableAppointmentsDateReqType">
+            <xsd:sequence>
+	            <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="AppointmentTypeCode" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="GetAvailableAppointmentsDateResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+	                     <xsd:element minOccurs="0" name="AppointmentTypeCode" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentTypeDescAr" type="xsd:string"/>	
+						<xsd:element minOccurs="0" name="AppointmentTypeDescEn" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentBranchDescAr" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentBranchDescEn" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentDate" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         
+         <xsd:complexType name="GetAvailableAppointmentsTimeReqType">
+            <xsd:sequence>
+            	<xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				<xsd:element minOccurs="0" name="AppointmentTypeCode" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="AppointmentDate" type="xsd:string"/>         
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="GetAvailableAppointmentsTimeResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                     <xsd:element minOccurs="0" name="AppointmentTime" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="GetAppointmentDetailsReqType">
+            <xsd:sequence>
+	            <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				<xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="GetAppointmentDetailsResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                        <xsd:element minOccurs="0" name="AppointmentTypeCode" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentTypeDescAr" type="xsd:string"/>	
+						<xsd:element minOccurs="0" name="AppointmentTypeDescEn" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentBranchDescAr" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentBranchDescEn" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentDate" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentTime" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentStatusCode" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentStatusAr" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentStatusEn" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AlloWToCancel" type="xsd:boolean"/>
+						<xsd:element minOccurs="0" name="AllowToReschedule" type="xsd:boolean"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         <xsd:complexType name="SaveAppointmentReqType">
+            <xsd:sequence>
+                  <xsd:element minOccurs="0" name="CPRNumber" type="xsd:string"/>
+				  <xsd:element minOccurs="0" name="NationalityCode" type="xsd:string"/>	
+				  <xsd:element minOccurs="0" name="AppointmentTypeCode" type="xsd:string"/>	
+				  <xsd:element minOccurs="0" name="AppointmentDate" type="xsd:string"/>
+				  <xsd:element minOccurs="0" name="AppointmentTime" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="AlloWToCancel" type="xsd:boolean"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="SaveAppointmentResType">
+            <xsd:complexContent>
+               <xsd:extension base="tns:ReturnCodes">
+                  <xsd:sequence>
+                        <xsd:element minOccurs="0" name="AppointmentStatusCode" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentStatusAr" type="xsd:string"/>
+						<xsd:element minOccurs="0" name="AppointmentStatusEn" type="xsd:string"/>
+                  </xsd:sequence>
+               </xsd:extension>
+            </xsd:complexContent>
+         </xsd:complexType>
+         
+         
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++ Complex Types ++++++++++++++++++++++++++++++++++++++++++++++ -->
+   
+         <xsd:complexType name="ReturnCodes">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="Result" type="tns:ResultType"/>
+            </xsd:sequence>
+         </xsd:complexType>
+         <xsd:complexType name="ResultType">
+            <xsd:sequence>
+               <xsd:element minOccurs="0" name="Errorcode" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="ErrorDesc" type="xsd:string"/>
+               <xsd:element minOccurs="0" name="AdditionalInfo" type="xsd:string"/>
+            </xsd:sequence>
+         </xsd:complexType>
+
+		</xsd:schema>
+    </wsdl:types>
+   
+   <!-- ++++++++++++++++++++++++++++++++++++++++++++++++ End Complex Type +++++++++++++++++++++++++++++++++++++++++++++++ -->
+    <wsdl:message name="ValidateUserEligibilityAndGetProfileDetailsRequest">
+      <wsdl:part element="tns:ValidateUserEligibilityAndGetProfileDetailsRequest" name="ValidateUserEligibilityAndGetProfileDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="ValidateUserEligibilityAndGetProfileDetailsResponse">
+      <wsdl:part element="tns:ValidateUserEligibilityAndGetProfileDetailsResponse" name="ValidateUserEligibilityAndGetProfileDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPPersonalSkillsRequest">
+      <wsdl:part element="tns:LKUPPersonalSkillsRequest" name="LKUPPersonalSkillsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPPersonalSkillsResponse">
+      <wsdl:part element="tns:LKUPPersonalSkillsResponse" name="LKUPPersonalSkillsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SavePersonalDetailsRequest">
+      <wsdl:part element="tns:SavePersonalDetailsRequest" name="SavePersonalDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SavePersonalDetailsResponse">
+      <wsdl:part element="tns:SavePersonalDetailsResponse" name="SavePersonalDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPLicenseTypeRequest">
+      <wsdl:part element="tns:LKUPLicenseTypeRequest" name="LKUPLicenseTypeReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPLicenseTypeResponse">
+      <wsdl:part element="tns:LKUPLicenseTypeResponse" name="LKUPLicenseTypeResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPLicenseCategoryRequest">
+      <wsdl:part element="tns:LKUPLicenseCategoryRequest" name="LKUPLicenseCategoryReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPLicenseCategoryResponse">
+      <wsdl:part element="tns:LKUPLicenseCategoryResponse" name="LKUPLicenseCategoryResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPLicenseListRequest">
+      <wsdl:part element="tns:LKUPLicenseListRequest" name="LKUPLicenseListReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPLicenseListResponse">
+      <wsdl:part element="tns:LKUPLicenseListResponse" name="LKUPLicenseListResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveLicenseDetailsRequest">
+      <wsdl:part element="tns:SaveLicenseDetailsRequest" name="SaveLicenseDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveLicenseDetailsResponse">
+      <wsdl:part element="tns:SaveLicenseDetailsResponse" name="SaveLicenseDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPChronicDiseasesRequest">
+      <wsdl:part element="tns:LKUPChronicDiseasesRequest" name="LKUPChronicDiseasesReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPChronicDiseasesResponse">
+      <wsdl:part element="tns:LKUPChronicDiseasesResponse" name="LKUPChronicDiseasesResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPChronicDiseasesLevelsRequest">
+      <wsdl:part element="tns:LKUPChronicDiseasesLevelsRequest" name="LKUPChronicDiseasesLevelsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPChronicDiseasesLevelsResponse">
+      <wsdl:part element="tns:LKUPChronicDiseasesLevelsResponse" name="LKUPChronicDiseasesLevelsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveChronicDiseasesDetailsRequest">
+      <wsdl:part element="tns:SaveChronicDiseasesDetailsRequest" name="SaveChronicDiseasesDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveChronicDiseasesDetailsResponse">
+      <wsdl:part element="tns:SaveChronicDiseasesDetailsResponse" name="SaveChronicDiseasesDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPNationalityRequest">
+      <wsdl:part element="tns:LKUPNationalityRequest" name="LKUPNationalityReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPNationalityResponse">
+      <wsdl:part element="tns:LKUPNationalityResponse" name="LKUPNationalityResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPEducationalQualificationsRequest">
+      <wsdl:part element="tns:LKUPEducationalQualificationsRequest" name="LKUPEducationalQualificationsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPEducationalQualificationsResponse">
+      <wsdl:part element="tns:LKUPEducationalQualificationsResponse" name="LKUPEducationalQualificationsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPSpecializationRequest">
+      <wsdl:part element="tns:LKUPSpecializationRequest" name="LKUPSpecializationReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPSpecializationResponse">
+      <wsdl:part element="tns:LKUPSpecializationResponse" name="LKUPSpecializationResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPEducationalInstitutionRequest">
+      <wsdl:part element="tns:LKUPEducationalInstitutionRequest" name="LKUPEducationalInstitutionReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPEducationalInstitutionResponse">
+      <wsdl:part element="tns:LKUPEducationalInstitutionResponse" name="LKUPEducationalInstitutionResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveEducationalDetailsRequest">
+      <wsdl:part element="tns:SaveEducationalDetailsRequest" name="SaveEducationalDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveEducationalDetailsResponse">
+      <wsdl:part element="tns:SaveEducationalDetailsResponse" name="SaveEducationalDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPLanguagesListRequest">
+      <wsdl:part element="tns:LKUPLanguagesListRequest" name="LKUPLanguagesListReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPLanguagesListResponse">
+      <wsdl:part element="tns:LKUPLanguagesListResponse" name="LKUPLanguagesListResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPLanguagesLevelsRequest">
+      <wsdl:part element="tns:LKUPLanguagesLevelsRequest" name="LKUPLanguagesLevelsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPLanguagesLevelsResponse">
+      <wsdl:part element="tns:LKUPLanguagesLevelsResponse" name="LKUPLanguagesLevelsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveLanguageSkillsDetailsRequest">
+      <wsdl:part element="tns:SaveLanguageSkillsDetailsRequest" name="SaveLanguageSkillsDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveLanguageSkillsDetailsResponse">
+      <wsdl:part element="tns:SaveLanguageSkillsDetailsResponse" name="SaveLanguageSkillsDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPTrainingFieldRequest">
+      <wsdl:part element="tns:LKUPTrainingFieldRequest" name="LKUPTrainingFieldReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPTrainingFieldResponse">
+      <wsdl:part element="tns:LKUPTrainingFieldResponse" name="LKUPTrainingFieldResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPTrainingCertificatesTypeRequest">
+      <wsdl:part element="tns:LKUPTrainingCertificatesTypeRequest" name="LKUPTrainingCertificatesTypeReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPTrainingCertificatesTypeResponse">
+      <wsdl:part element="tns:LKUPTrainingCertificatesTypeResponse" name="LKUPTrainingCertificatesTypeResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPTrainingInstitutionRequest">
+      <wsdl:part element="tns:LKUPTrainingInstitutionRequest" name="LKUPTrainingInstitutionReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPTrainingInstitutionResponse">
+      <wsdl:part element="tns:LKUPTrainingInstitutionResponse" name="LKUPTrainingInstitutionResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPTrainingInstituteTypeRequest">
+      <wsdl:part element="tns:LKUPTrainingInstituteTypeRequest" name="LKUPTrainingInstituteTypeReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPTrainingInstituteTypeResponse">
+      <wsdl:part element="tns:LKUPTrainingInstituteTypeResponse" name="LKUPTrainingInstituteTypeResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveTrainingDetailsRequest">
+      <wsdl:part element="tns:SaveTrainingDetailsRequest" name="SaveTrainingDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveTrainingDetailsResponse">
+      <wsdl:part element="tns:SaveTrainingDetailsResponse" name="SaveTrainingDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPJobFieldRequest">
+      <wsdl:part element="tns:LKUPJobFieldRequest" name="LKUPJobFieldReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPJobFieldResponse">
+      <wsdl:part element="tns:LKUPJobFieldResponse" name="LKUPJobFieldResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveRequiredJobsDetailsRequest">
+      <wsdl:part element="tns:SaveRequiredJobsDetailsRequest" name="SaveRequiredJobsDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveRequiredJobsDetailsResponse">
+      <wsdl:part element="tns:SaveRequiredJobsDetailsResponse" name="SaveRequiredJobsDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPQuestionsRequest">
+      <wsdl:part element="tns:LKUPQuestionsRequest" name="LKUPQuestionsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPQuestionsResponse">
+      <wsdl:part element="tns:LKUPQuestionsResponse" name="LKUPQuestionsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveQuestionsDetailsRequest">
+      <wsdl:part element="tns:SaveQuestionsDetailsRequest" name="SaveQuestionsDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveQuestionsDetailsResponse">
+      <wsdl:part element="tns:SaveQuestionsDetailsResponse" name="SaveQuestionsDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPJobOrganizationNameRequest">
+      <wsdl:part element="tns:LKUPJobOrganizationNameRequest" name="LKUPJobOrganizationNameReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPJobOrganizationNameResponse">
+      <wsdl:part element="tns:LKUPJobOrganizationNameResponse" name="LKUPJobOrganizationNameResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPJobSectorTypeRequest">
+      <wsdl:part element="tns:LKUPJobSectorTypeRequest" name="LKUPJobSectorTypeReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPJobSectorTypeResponse">
+      <wsdl:part element="tns:LKUPJobSectorTypeResponse" name="LKUPJobSectorTypeResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPJobListRequest">
+      <wsdl:part element="tns:LKUPJobListRequest" name="LKUPJobListReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPJobListResponse">
+      <wsdl:part element="tns:LKUPJobListResponse" name="LKUPJobListResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPJobLeaveReasonRequest">
+      <wsdl:part element="tns:LKUPJobLeaveReasonRequest" name="LKUPJobLeaveReasonReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPJobLeaveReasonResponse">
+      <wsdl:part element="tns:LKUPJobLeaveReasonResponse" name="LKUPJobLeaveReasonResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveWorkExperienceDetailsRequest">
+      <wsdl:part element="tns:SaveWorkExperienceDetailsRequest" name="SaveWorkExperienceDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveWorkExperienceDetailsResponse">
+      <wsdl:part element="tns:SaveWorkExperienceDetailsResponse" name="SaveWorkExperienceDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="LKUPRequiredDocumentsRequest">
+      <wsdl:part element="tns:LKUPRequiredDocumentsRequest" name="LKUPRequiredDocumentsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="LKUPRequiredDocumentsResponse">
+      <wsdl:part element="tns:LKUPRequiredDocumentsResponse" name="LKUPRequiredDocumentsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveAttachmentsDetailsRequest">
+      <wsdl:part element="tns:SaveAttachmentsDetailsRequest" name="SaveAttachmentsDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveAttachmentsDetailsResponse">
+      <wsdl:part element="tns:SaveAttachmentsDetailsResponse" name="SaveAttachmentsDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="GetAvailableAppointmentsDateRequest">
+      <wsdl:part element="tns:GetAvailableAppointmentsDateRequest" name="GetAvailableAppointmentsDateReqType"/>
+   </wsdl:message>
+   <wsdl:message name="GetAvailableAppointmentsDateResponse">
+      <wsdl:part element="tns:GetAvailableAppointmentsDateResponse" name="GetAvailableAppointmentsDateResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="GetAvailableAppointmentsTimeRequest">
+      <wsdl:part element="tns:GetAvailableAppointmentsTimeRequest" name="GetAvailableAppointmentsTimeReqType"/>
+   </wsdl:message>
+   <wsdl:message name="GetAvailableAppointmentsTimeResponse">
+      <wsdl:part element="tns:GetAvailableAppointmentsTimeResponse" name="GetAvailableAppointmentsTimeResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="GetAppointmentDetailsRequest">
+      <wsdl:part element="tns:GetAppointmentDetailsRequest" name="GetAppointmentDetailsReqType"/>
+   </wsdl:message>
+   <wsdl:message name="GetAppointmentDetailsResponse">
+      <wsdl:part element="tns:GetAppointmentDetailsResponse" name="GetAppointmentDetailsResType"/>
+   </wsdl:message>
+   
+   <wsdl:message name="SaveAppointmentRequest">
+      <wsdl:part element="tns:SaveAppointmentRequest" name="SaveAppointmentReqType"/>
+   </wsdl:message>
+   <wsdl:message name="SaveAppointmentResponse">
+      <wsdl:part element="tns:SaveAppointmentResponse" name="SaveAppointmentResType"/>
+   </wsdl:message>
+   
+   
+   <wsdl:portType name="NGIEmploymentServicesMLSD">
+   
+      <wsdl:operation name="ValidateUserEligibilityAndGetProfileDetails">
+         <wsdl:input message="tns:ValidateUserEligibilityAndGetProfileDetailsRequest" name="ValidateUserEligibilityAndGetProfileDetailsRequest"/>
+         <wsdl:output message="tns:ValidateUserEligibilityAndGetProfileDetailsResponse" name="ValidateUserEligibilityAndGetProfileDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPPersonalSkills">
+         <wsdl:input message="tns:LKUPPersonalSkillsRequest" name="LKUPPersonalSkillsRequest"/>
+         <wsdl:output message="tns:LKUPPersonalSkillsResponse" name="LKUPPersonalSkillsResponse"/>
+      </wsdl:operation>
+     
+      <wsdl:operation name="SavePersonalDetails">
+         <wsdl:input message="tns:SavePersonalDetailsRequest" name="SavePersonalDetailsRequest"/>
+         <wsdl:output message="tns:SavePersonalDetailsResponse" name="SavePersonalDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPLicenseType">
+         <wsdl:input message="tns:LKUPLicenseTypeRequest" name="LKUPLicenseTypeRequest"/>
+         <wsdl:output message="tns:LKUPLicenseTypeResponse" name="LKUPLicenseTypeResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPLicenseCategory">
+         <wsdl:input message="tns:LKUPLicenseCategoryRequest" name="LKUPLicenseCategoryRequest"/>
+         <wsdl:output message="tns:LKUPLicenseCategoryResponse" name="LKUPLicenseCategoryResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPLicenseList">
+         <wsdl:input message="tns:LKUPLicenseListRequest" name="LKUPLicenseListRequest"/>
+         <wsdl:output message="tns:LKUPLicenseListResponse" name="LKUPLicenseListResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="SaveLicenseDetails">
+         <wsdl:input message="tns:SaveLicenseDetailsRequest" name="SaveLicenseDetailsRequest"/>
+         <wsdl:output message="tns:SaveLicenseDetailsResponse" name="SaveLicenseDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPChronicDiseases">
+         <wsdl:input message="tns:LKUPChronicDiseasesRequest" name="LKUPChronicDiseasesRequest"/>
+         <wsdl:output message="tns:LKUPChronicDiseasesResponse" name="LKUPChronicDiseasesResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPChronicDiseasesLevels">
+         <wsdl:input message="tns:LKUPChronicDiseasesLevelsRequest" name="LKUPChronicDiseasesLevelsRequest"/>
+         <wsdl:output message="tns:LKUPChronicDiseasesLevelsResponse" name="LKUPChronicDiseasesLevelsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="SaveChronicDiseasesDetails">
+         <wsdl:input message="tns:SaveChronicDiseasesDetailsRequest" name="SaveChronicDiseasesDetailsRequest"/>
+         <wsdl:output message="tns:SaveChronicDiseasesDetailsResponse" name="SaveChronicDiseasesDetailsResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="LKUPNationality">
+         <wsdl:input message="tns:LKUPNationalityRequest" name="LKUPNationalityRequest"/>
+         <wsdl:output message="tns:LKUPNationalityResponse" name="LKUPNationalityResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="LKUPEducationalQualifications">
+         <wsdl:input message="tns:LKUPEducationalQualificationsRequest" name="LKUPEducationalQualificationsRequest"/>
+         <wsdl:output message="tns:LKUPEducationalQualificationsResponse" name="LKUPEducationalQualificationsResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="LKUPSpecialization">
+         <wsdl:input message="tns:LKUPSpecializationRequest" name="LKUPSpecializationRequest"/>
+         <wsdl:output message="tns:LKUPSpecializationResponse" name="LKUPSpecializationResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="LKUPEducationalInstitution">
+         <wsdl:input message="tns:LKUPEducationalInstitutionRequest" name="LKUPEducationalInstitutionRequest"/>
+         <wsdl:output message="tns:LKUPEducationalInstitutionResponse" name="LKUPEducationalInstitutionResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="SaveEducationalDetails">
+         <wsdl:input message="tns:SaveEducationalDetailsRequest" name="SaveEducationalDetailsRequest"/>
+         <wsdl:output message="tns:SaveEducationalDetailsResponse" name="SaveEducationalDetailsResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="LKUPLanguagesList">
+         <wsdl:input message="tns:LKUPLanguagesListRequest" name="LKUPLanguagesListRequest"/>
+         <wsdl:output message="tns:LKUPLanguagesListResponse" name="LKUPLanguagesListResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="LKUPLanguagesLevels">
+         <wsdl:input message="tns:LKUPLanguagesLevelsRequest" name="LKUPLanguagesLevelsRequest"/>
+         <wsdl:output message="tns:LKUPLanguagesLevelsResponse" name="LKUPLanguagesLevelsResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="SaveLanguageSkillsDetails">
+         <wsdl:input message="tns:SaveLanguageSkillsDetailsRequest" name="SaveLanguageSkillsDetailsRequest"/>
+         <wsdl:output message="tns:SaveLanguageSkillsDetailsResponse" name="SaveLanguageSkillsDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPTrainingField">
+         <wsdl:input message="tns:LKUPTrainingFieldRequest" name="LKUPTrainingFieldRequest"/>
+         <wsdl:output message="tns:LKUPTrainingFieldResponse" name="LKUPTrainingFieldResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPTrainingCertificatesType">
+         <wsdl:input message="tns:LKUPTrainingCertificatesTypeRequest" name="LKUPTrainingCertificatesTypeRequest"/>
+         <wsdl:output message="tns:LKUPTrainingCertificatesTypeResponse" name="LKUPTrainingCertificatesTypeResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPTrainingInstitution">
+         <wsdl:input message="tns:LKUPTrainingInstitutionRequest" name="LKUPTrainingInstitutionRequest"/>
+         <wsdl:output message="tns:LKUPTrainingInstitutionResponse" name="LKUPTrainingInstitutionResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPTrainingInstituteType">
+         <wsdl:input message="tns:LKUPTrainingInstituteTypeRequest" name="LKUPTrainingInstituteTypeRequest"/>
+         <wsdl:output message="tns:LKUPTrainingInstituteTypeResponse" name="LKUPTrainingInstituteTypeResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="SaveTrainingDetails">
+         <wsdl:input message="tns:SaveTrainingDetailsRequest" name="SaveTrainingDetailsRequest"/>
+         <wsdl:output message="tns:SaveTrainingDetailsResponse" name="SaveTrainingDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPJobField">
+         <wsdl:input message="tns:LKUPJobFieldRequest" name="LKUPJobFieldRequest"/>
+         <wsdl:output message="tns:LKUPJobFieldResponse" name="LKUPJobFieldResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="SaveRequiredJobsDetails">
+         <wsdl:input message="tns:SaveRequiredJobsDetailsRequest" name="SaveRequiredJobsDetailsRequest"/>
+         <wsdl:output message="tns:SaveRequiredJobsDetailsResponse" name="SaveRequiredJobsDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPQuestions">
+         <wsdl:input message="tns:LKUPQuestionsRequest" name="LKUPQuestionsRequest"/>
+         <wsdl:output message="tns:LKUPQuestionsResponse" name="LKUPQuestionsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="SaveQuestionsDetails">
+         <wsdl:input message="tns:SaveQuestionsDetailsRequest" name="SaveQuestionsDetailsRequest"/>
+         <wsdl:output message="tns:SaveQuestionsDetailsResponse" name="SaveQuestionsDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPJobOrganizationName">
+         <wsdl:input message="tns:LKUPJobOrganizationNameRequest" name="LKUPJobOrganizationNameRequest"/>
+         <wsdl:output message="tns:LKUPJobOrganizationNameResponse" name="LKUPJobOrganizationNameResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPJobSectorType">
+         <wsdl:input message="tns:LKUPJobSectorTypeRequest" name="LKUPJobSectorTypeRequest"/>
+         <wsdl:output message="tns:LKUPJobSectorTypeResponse" name="LKUPJobSectorTypeResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPJobList">
+         <wsdl:input message="tns:LKUPJobListRequest" name="LKUPJobListRequest"/>
+         <wsdl:output message="tns:LKUPJobListResponse" name="LKUPJobListResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPJobLeaveReason">
+         <wsdl:input message="tns:LKUPJobLeaveReasonRequest" name="LKUPJobLeaveReasonRequest"/>
+         <wsdl:output message="tns:LKUPJobLeaveReasonResponse" name="LKUPJobLeaveReasonResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="SaveWorkExperienceDetails">
+         <wsdl:input message="tns:SaveWorkExperienceDetailsRequest" name="SaveWorkExperienceDetailsRequest"/>
+         <wsdl:output message="tns:SaveWorkExperienceDetailsResponse" name="SaveWorkExperienceDetailsResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="LKUPRequiredDocuments">
+         <wsdl:input message="tns:LKUPRequiredDocumentsRequest" name="LKUPRequiredDocumentsRequest"/>
+         <wsdl:output message="tns:LKUPRequiredDocumentsResponse" name="LKUPRequiredDocumentsResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="SaveAttachmentsDetails">
+         <wsdl:input message="tns:SaveAttachmentsDetailsRequest" name="SaveAttachmentsDetailsRequest"/>
+         <wsdl:output message="tns:SaveAttachmentsDetailsResponse" name="SaveAttachmentsDetailsResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="GetAvailableAppointmentsDate">
+         <wsdl:input message="tns:GetAvailableAppointmentsDateRequest" name="GetAvailableAppointmentsDateRequest"/>
+         <wsdl:output message="tns:GetAvailableAppointmentsDateResponse" name="GetAvailableAppointmentsDateResponse"/>
+      </wsdl:operation>
+      
+       <wsdl:operation name="GetAvailableAppointmentsTime">
+         <wsdl:input message="tns:GetAvailableAppointmentsTimeRequest" name="GetAvailableAppointmentsTimeRequest"/>
+         <wsdl:output message="tns:GetAvailableAppointmentsTimeResponse" name="GetAvailableAppointmentsTimeResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="GetAppointmentDetails">
+         <wsdl:input message="tns:GetAppointmentDetailsRequest" name="GetAppointmentDetailsRequest"/>
+         <wsdl:output message="tns:GetAppointmentDetailsResponse" name="GetAppointmentDetailsResponse"/>
+      </wsdl:operation>
+      
+      <wsdl:operation name="SaveAppointment">
+         <wsdl:input message="tns:SaveAppointmentRequest" name="SaveAppointmentRequest"/>
+         <wsdl:output message="tns:SaveAppointmentResponse" name="SaveAppointmentResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+   
+   <wsdl:binding name="NGIEmploymentServicesMLSDHttpBinding" type="tns:NGIEmploymentServicesMLSD">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+      
+      <wsdl:operation name="ValidateUserEligibilityAndGetProfileDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="ValidateUserEligibilityAndGetProfileDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="ValidateUserEligibilityAndGetProfileDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+      </wsdl:operation>
+      
+      <wsdl:operation name="LKUPPersonalSkills">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPPersonalSkillsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPPersonalSkillsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+      
+       <wsdl:operation name="SavePersonalDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SavePersonalDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SavePersonalDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPLicenseType">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPLicenseTypeRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPLicenseTypeResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPLicenseCategory">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPLicenseCategoryRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPLicenseCategoryResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPLicenseList">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPLicenseListRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPLicenseListResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       
+       <wsdl:operation name="SaveLicenseDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveLicenseDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveLicenseDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPChronicDiseases">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPChronicDiseasesRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPChronicDiseasesResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       
+       <wsdl:operation name="LKUPChronicDiseasesLevels">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPChronicDiseasesLevelsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPChronicDiseasesLevelsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="SaveChronicDiseasesDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveChronicDiseasesDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveChronicDiseasesDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+        <wsdl:operation name="LKUPNationality">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPNationalityRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPNationalityResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+        <wsdl:operation name="LKUPEducationalQualifications">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPEducationalQualificationsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPEducationalQualificationsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPSpecialization">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPSpecializationRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPSpecializationResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPEducationalInstitution">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPEducationalInstitutionRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPEducationalInstitutionResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="SaveEducationalDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveEducationalDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveEducationalDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPLanguagesList">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPLanguagesListRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPLanguagesListResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPLanguagesLevels">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPLanguagesLevelsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPLanguagesLevelsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="SaveLanguageSkillsDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveLanguageSkillsDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveLanguageSkillsDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPTrainingField">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPTrainingFieldRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPTrainingFieldResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPTrainingCertificatesType">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPTrainingCertificatesTypeRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPTrainingCertificatesTypeResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPTrainingInstitution">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPTrainingInstitutionRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPTrainingInstitutionResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPTrainingInstituteType">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPTrainingInstituteTypeRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPTrainingInstituteTypeResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="SaveTrainingDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveTrainingDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveTrainingDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPJobField">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPJobFieldRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPJobFieldResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="SaveRequiredJobsDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveRequiredJobsDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveRequiredJobsDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+        <wsdl:operation name="LKUPQuestions">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPQuestionsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPQuestionsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+        <wsdl:operation name="SaveQuestionsDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveQuestionsDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveQuestionsDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPJobOrganizationName">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPJobOrganizationNameRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPJobOrganizationNameResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPJobSectorType">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPJobSectorTypeRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPJobSectorTypeResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPJobList">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPJobListRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPJobListResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPJobLeaveReason">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPJobLeaveReasonRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPJobLeaveReasonResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="SaveWorkExperienceDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveWorkExperienceDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveWorkExperienceDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="LKUPRequiredDocuments">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="LKUPRequiredDocumentsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="LKUPRequiredDocumentsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="SaveAttachmentsDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveAttachmentsDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveAttachmentsDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="GetAvailableAppointmentsDate">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="GetAvailableAppointmentsDateRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="GetAvailableAppointmentsDateResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+       <wsdl:operation name="GetAvailableAppointmentsTime">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="GetAvailableAppointmentsTimeRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="GetAvailableAppointmentsTimeResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+        <wsdl:operation name="GetAppointmentDetails">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="GetAppointmentDetailsRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="GetAppointmentDetailsResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+        <wsdl:operation name="SaveAppointment">
+         <soap:operation soapAction=""/>
+         <wsdl:input name="SaveAppointmentRequest">
+            <soap:body use="literal"/>
+         </wsdl:input>
+         <wsdl:output name="SaveAppointmentResponse">
+            <soap:body use="literal"/>
+         </wsdl:output>
+       </wsdl:operation>
+       
+      
+   </wsdl:binding>
+  
+   <wsdl:service name="NGIEmploymentServicesExport1">
+      <wsdl:port binding="tns:NGIEmploymentServicesMLSDHttpBinding" name="NGIEmploymentServicesMLSDHttpPort">
+         <soap:address location="http://10.71.13.62:7801/SmartCardEKeyServices/Application"/>
+      </wsdl:port>
+   </wsdl:service>
+</wsdl:definitions>
