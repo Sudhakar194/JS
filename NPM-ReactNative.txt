@@ -1,0 +1,4 @@
+node.js - version should be 8 9 10 11
+npm i -g @react-native-community/cli@2.0.0-rc.2
+npm i global add react-native-cli
+npx react-native init AwesomeProject
