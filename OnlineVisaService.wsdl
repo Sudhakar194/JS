@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="OnlineVisaService" targetNamespace="http://service.online.visa.gdnpr.integration.cio.gov.bh/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.online.visa.gdnpr.integration.cio.gov.bh/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.online.visa.gdnpr.integration.cio.gov.bh/" xmlns:tns="http://service.online.visa.gdnpr.integration.cio.gov.bh/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="addVisaAttachment" type="tns:addVisaAttachment" />
+<xs:element name="addVisaAttachmentResponse" type="tns:addVisaAttachmentResponse" />
 <xs:element name="getAllOnlineVisaRequestInfo" type="tns:getAllOnlineVisaRequestInfo" />
 <xs:element name="getAllOnlineVisaRequestInfoResponse" type="tns:getAllOnlineVisaRequestInfoResponse" />
 <xs:element name="getAllVisasByInfo" type="tns:getAllVisasByInfo" />
@@ -13,14 +15,26 @@
 <xs:element name="getIdentityTypeLookupResponse" type="tns:getIdentityTypeLookupResponse" />
 <xs:element name="getNationalityLookup" type="tns:getNationalityLookup" />
 <xs:element name="getNationalityLookupResponse" type="tns:getNationalityLookupResponse" />
+<xs:element name="getNewVisaTypeLookup" type="tns:getNewVisaTypeLookup" />
+<xs:element name="getNewVisaTypeLookupResponse" type="tns:getNewVisaTypeLookupResponse" />
 <xs:element name="getOnlineReceiptByRequestNumber" type="tns:getOnlineReceiptByRequestNumber" />
 <xs:element name="getOnlineReceiptByRequestNumberResponse" type="tns:getOnlineReceiptByRequestNumberResponse" />
 <xs:element name="getOnlineVisaRequestOperationToByRequestNumber" type="tns:getOnlineVisaRequestOperationToByRequestNumber" />
 <xs:element name="getOnlineVisaRequestOperationToByRequestNumberResponse" type="tns:getOnlineVisaRequestOperationToByRequestNumberResponse" />
+<xs:element name="getRelationTypeLookup" type="tns:getRelationTypeLookup" />
+<xs:element name="getRelationTypeLookupResponse" type="tns:getRelationTypeLookupResponse" />
 <xs:element name="getServiceTypeLookup" type="tns:getServiceTypeLookup" />
 <xs:element name="getServiceTypeLookupResponse" type="tns:getServiceTypeLookupResponse" />
+<xs:element name="getVisaCategoryLookup" type="tns:getVisaCategoryLookup" />
+<xs:element name="getVisaCategoryLookupResponse" type="tns:getVisaCategoryLookupResponse" />
+<xs:element name="getVisaSubCategoryLookup" type="tns:getVisaSubCategoryLookup" />
+<xs:element name="getVisaSubCategoryLookupResponse" type="tns:getVisaSubCategoryLookupResponse" />
+<xs:element name="submitVisaCancelRequest" type="tns:submitVisaCancelRequest" />
+<xs:element name="submitVisaCancelRequestResponse" type="tns:submitVisaCancelRequestResponse" />
 <xs:element name="submitVisaExtendRequest" type="tns:submitVisaExtendRequest" />
 <xs:element name="submitVisaExtendRequestResponse" type="tns:submitVisaExtendRequestResponse" />
+<xs:element name="updateVisaAttachments" type="tns:updateVisaAttachments" />
+<xs:element name="updateVisaAttachmentsResponse" type="tns:updateVisaAttachmentsResponse" />
 <xs:element name="validateApplicant" type="tns:validateApplicant" />
 <xs:element name="validateApplicantResponse" type="tns:validateApplicantResponse" />
 <xs:element name="validateVisaExtendDetails" type="tns:validateVisaExtendDetails" />
@@ -76,13 +90,40 @@
 <xs:element minOccurs="0" name="message" type="xs:string" />
 </xs:sequence>
 </xs:complexType>
+<xs:complexType name="getNewVisaTypeLookup">
+<xs:sequence>
+<xs:element name="eKeyCPRNumber" type="xs:string" />
+<xs:element name="eKeyServiceID" type="xs:string" />
+<xs:element name="eKeyTokenID" type="xs:string" />
+<xs:element name="eKeyTimestamp" type="xs:string" />
+<xs:element name="visaType" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getNewVisaTypeLookupResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="NewVisaTypeResponse" type="tns:LookupResponseInfo" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getVisaCategoryLookup">
+<xs:sequence>
+<xs:element name="eKeyCPRNumber" type="xs:string" />
+<xs:element name="eKeyServiceID" type="xs:string" />
+<xs:element name="eKeyTokenID" type="xs:string" />
+<xs:element name="eKeyTimestamp" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getVisaCategoryLookupResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="VisaCategoryResponse" type="tns:LookupResponseInfo" />
+</xs:sequence>
+</xs:complexType>
 <xs:complexType name="validateVisaExtendDetails">
 <xs:sequence>
 <xs:element name="eKeyCPRNumber" type="xs:string" />
 <xs:element name="eKeyServiceID" type="xs:string" />
 <xs:element name="eKeyTokenID" type="xs:string" />
 <xs:element name="eKeyTimestamp" type="xs:string" />
-<xs:element minOccurs="0" name="applicantTypeId" type="xs:string" />
+<xs:element name="applicantTypeId" type="xs:string" />
 <xs:element minOccurs="0" name="applicantNationlityId" type="xs:string" />
 <xs:element name="ownerNationalityId" type="xs:string" />
 <xs:element name="ownerPassportNumber" type="xs:string" />
@@ -117,9 +158,13 @@
 <xs:element minOccurs="0" name="ownerFirstEnglishName" type="xs:string" />
 <xs:element minOccurs="0" name="ownerMiddleEnglishName" type="xs:string" />
 <xs:element minOccurs="0" name="ownerLastEnglishName" type="xs:string" />
+<xs:element minOccurs="0" name="ownerMobileNumber" type="xs:string" />
+<xs:element minOccurs="0" name="ownerEmail" type="xs:string" />
+<xs:element minOccurs="0" name="ownerAddress" type="xs:string" />
 <xs:element minOccurs="0" name="reviewRequired" type="xs:string" />
 <xs:element minOccurs="0" name="isToPayFees" type="xs:string" />
 <xs:element maxOccurs="unbounded" minOccurs="0" name="fees" nillable="true" type="tns:FeesInfo" />
+<xs:element maxOccurs="unbounded" minOccurs="0" name="attachments" nillable="true" type="tns:AttachmentInfo" />
 </xs:sequence>
 </xs:complexType>
 <xs:complexType name="FeesInfo">
@@ -130,6 +175,53 @@
 <xs:element minOccurs="0" name="itemAmount" type="xs:double" />
 <xs:element minOccurs="0" name="itemCount" type="xs:int" />
 <xs:element minOccurs="0" name="totalAmount" type="xs:double" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AttachmentInfo">
+<xs:sequence>
+<xs:element minOccurs="0" name="attachmentId" type="xs:long" />
+<xs:element minOccurs="0" name="attachmentTypeCode" type="xs:string" />
+<xs:element minOccurs="0" name="attachmentArabicDesc" type="xs:string" />
+<xs:element minOccurs="0" name="attachmentEnglishDesc" type="xs:string" />
+<xs:element minOccurs="0" name="isMandatory" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateVisaAttachments">
+<xs:sequence>
+<xs:element name="eKeyCPRNumber" type="xs:string" />
+<xs:element name="eKeyServiceID" type="xs:string" />
+<xs:element name="eKeyTokenID" type="xs:string" />
+<xs:element name="eKeyTimestamp" type="xs:string" />
+<xs:element name="requestNumber" type="xs:long" />
+<xs:element maxOccurs="unbounded" name="attachmentID" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="updateVisaAttachmentsResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="UpdateVisaAttachments" type="tns:VisaAttachmentDTO" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="VisaAttachmentDTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="responseCode" type="xs:string" />
+<xs:element minOccurs="0" name="responseMessage" type="xs:string" />
+<xs:element minOccurs="0" name="attachmentId" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addVisaAttachment">
+<xs:sequence>
+<xs:element name="eKeyCPRNumber" type="xs:string" />
+<xs:element name="eKeyServiceID" type="xs:string" />
+<xs:element name="eKeyTokenID" type="xs:string" />
+<xs:element name="eKeyTimestamp" type="xs:string" />
+<xs:element name="passportNumber" type="xs:string" />
+<xs:element name="visaTypeCode" type="xs:string" />
+<xs:element name="attachment" type="xs:base64Binary" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addVisaAttachmentResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="AddVisaAttachment" type="tns:VisaAttachmentDTO" />
 </xs:sequence>
 </xs:complexType>
 <xs:complexType name="getNationalityLookup">
@@ -193,6 +285,20 @@
 <xs:element minOccurs="0" name="IdentityTypeResponse" type="tns:LookupResponseInfo" />
 </xs:sequence>
 </xs:complexType>
+<xs:complexType name="getVisaSubCategoryLookup">
+<xs:sequence>
+<xs:element name="eKeyCPRNumber" type="xs:string" />
+<xs:element name="eKeyServiceID" type="xs:string" />
+<xs:element name="eKeyTokenID" type="xs:string" />
+<xs:element name="eKeyTimestamp" type="xs:string" />
+<xs:element name="visaCategory" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getVisaSubCategoryLookupResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="VisaSubCategoryResponse" type="tns:LookupResponseInfo" />
+</xs:sequence>
+</xs:complexType>
 <xs:complexType name="getApplicantTypeLookup">
 <xs:sequence>
 <xs:element name="eKeyCPRNumber" type="xs:string" />
@@ -212,7 +318,7 @@
 <xs:element name="eKeyServiceID" type="xs:string" />
 <xs:element name="eKeyTokenID" type="xs:string" />
 <xs:element name="eKeyTimestamp" type="xs:string" />
-<xs:element minOccurs="0" name="applicantTypeId" type="xs:string" />
+<xs:element name="applicantTypeId" type="xs:string" />
 <xs:element minOccurs="0" name="applicantNationlityId" type="xs:string" />
 <xs:element minOccurs="0" name="reason" type="xs:string" />
 <xs:element name="channelId" type="xs:string" />
@@ -239,6 +345,40 @@
 <xs:element minOccurs="0" name="mfVisaNumber" type="xs:int" />
 <xs:element minOccurs="0" name="receiptNumber" type="xs:long" />
 <xs:element minOccurs="0" name="requestNumber" type="xs:long" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="submitVisaCancelRequest">
+<xs:sequence>
+<xs:element name="eKeyCPRNumber" type="xs:string" />
+<xs:element name="eKeyServiceID" type="xs:string" />
+<xs:element name="eKeyTokenID" type="xs:string" />
+<xs:element name="eKeyTimestamp" type="xs:string" />
+<xs:element name="applicantTypeId" type="xs:string" />
+<xs:element minOccurs="0" name="applicantNationlityId" type="xs:string" />
+<xs:element name="ownerNationalityId" type="xs:string" />
+<xs:element name="ownerPassportNumber" type="xs:string" />
+<xs:element name="ownerBirthDate" type="xs:dateTime" />
+<xs:element minOccurs="0" name="sponsorIdentityType" type="xs:string" />
+<xs:element minOccurs="0" name="sponsorNationalityId" type="xs:string" />
+<xs:element minOccurs="0" name="sponsorIdentityNumber" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="submitVisaCancelRequestResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="SubmitVisaCancelRequest" type="tns:VisaExtendResponse" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getRelationTypeLookup">
+<xs:sequence>
+<xs:element name="eKeyCPRNumber" type="xs:string" />
+<xs:element name="eKeyServiceID" type="xs:string" />
+<xs:element name="eKeyTokenID" type="xs:string" />
+<xs:element name="eKeyTimestamp" type="xs:string" />
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getRelationTypeLookupResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="RelationTypeResponse" type="tns:LookupResponseInfo" />
 </xs:sequence>
 </xs:complexType>
 <xs:complexType name="validateApplicant">
@@ -416,8 +556,26 @@
     <wsdl:part element="tns:getAllVisasByInfoResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getNewVisaTypeLookup">
+    <wsdl:part element="tns:getNewVisaTypeLookup" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVisaCategoryLookup">
+    <wsdl:part element="tns:getVisaCategoryLookup" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="validateVisaExtendDetails">
     <wsdl:part element="tns:validateVisaExtendDetails" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addVisaAttachment">
+    <wsdl:part element="tns:addVisaAttachment" name="parameters">
     </wsdl:part>
     <wsdl:part element="tns:Security" name="Security">
     </wsdl:part>
@@ -438,18 +596,54 @@
     <wsdl:part element="tns:getOnlineReceiptByRequestNumberResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="updateVisaAttachmentsResponse">
+    <wsdl:part element="tns:updateVisaAttachmentsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRelationTypeLookupResponse">
+    <wsdl:part element="tns:getRelationTypeLookupResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVisaSubCategoryLookup">
+    <wsdl:part element="tns:getVisaSubCategoryLookup" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getApplicantTypeLookup">
     <wsdl:part element="tns:getApplicantTypeLookup" name="parameters">
     </wsdl:part>
     <wsdl:part element="tns:Security" name="Security">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getVisaCategoryLookupResponse">
+    <wsdl:part element="tns:getVisaCategoryLookupResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addVisaAttachmentResponse">
+    <wsdl:part element="tns:addVisaAttachmentResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getGCCNationalityLookupResponse">
     <wsdl:part element="tns:getGCCNationalityLookupResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="getNewVisaTypeLookupResponse">
+    <wsdl:part element="tns:getNewVisaTypeLookupResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="submitVisaCancelRequest">
+    <wsdl:part element="tns:submitVisaCancelRequest" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="validateApplicantResponse">
     <wsdl:part element="tns:validateApplicantResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="submitVisaCancelRequestResponse">
+    <wsdl:part element="tns:submitVisaCancelRequestResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="validateApplicant">
@@ -478,10 +672,20 @@
     <wsdl:part element="tns:ApplicationException" name="ApplicationExceptionInfo">
     </wsdl:part>
   </wsdl:message>
+  <wsdl:message name="updateVisaAttachments">
+    <wsdl:part element="tns:updateVisaAttachments" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="getNationalityLookup">
     <wsdl:part element="tns:getNationalityLookup" name="parameters">
     </wsdl:part>
     <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getVisaSubCategoryLookupResponse">
+    <wsdl:part element="tns:getVisaSubCategoryLookupResponse" name="parameters">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="getApplicantTypeLookupResponse">
@@ -508,6 +712,12 @@
   </wsdl:message>
   <wsdl:message name="submitVisaExtendRequest">
     <wsdl:part element="tns:submitVisaExtendRequest" name="parameters">
+    </wsdl:part>
+    <wsdl:part element="tns:Security" name="Security">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRelationTypeLookup">
+    <wsdl:part element="tns:getRelationTypeLookup" name="parameters">
     </wsdl:part>
     <wsdl:part element="tns:Security" name="Security">
     </wsdl:part>
@@ -539,10 +749,42 @@
       <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
     </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getNewVisaTypeLookup">
+      <wsdl:input message="tns:getNewVisaTypeLookup" name="getNewVisaTypeLookup">
+    </wsdl:input>
+      <wsdl:output message="tns:getNewVisaTypeLookupResponse" name="getNewVisaTypeLookupResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVisaCategoryLookup">
+      <wsdl:input message="tns:getVisaCategoryLookup" name="getVisaCategoryLookup">
+    </wsdl:input>
+      <wsdl:output message="tns:getVisaCategoryLookupResponse" name="getVisaCategoryLookupResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
+    </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="validateVisaExtendDetails">
       <wsdl:input message="tns:validateVisaExtendDetails" name="validateVisaExtendDetails">
     </wsdl:input>
       <wsdl:output message="tns:validateVisaExtendDetailsResponse" name="validateVisaExtendDetailsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisaAttachments">
+      <wsdl:input message="tns:updateVisaAttachments" name="updateVisaAttachments">
+    </wsdl:input>
+      <wsdl:output message="tns:updateVisaAttachmentsResponse" name="updateVisaAttachmentsResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addVisaAttachment">
+      <wsdl:input message="tns:addVisaAttachment" name="addVisaAttachment">
+    </wsdl:input>
+      <wsdl:output message="tns:addVisaAttachmentResponse" name="addVisaAttachmentResponse">
     </wsdl:output>
       <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
     </wsdl:fault>
@@ -579,6 +821,14 @@
       <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
     </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getVisaSubCategoryLookup">
+      <wsdl:input message="tns:getVisaSubCategoryLookup" name="getVisaSubCategoryLookup">
+    </wsdl:input>
+      <wsdl:output message="tns:getVisaSubCategoryLookupResponse" name="getVisaSubCategoryLookupResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
+    </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="getApplicantTypeLookup">
       <wsdl:input message="tns:getApplicantTypeLookup" name="getApplicantTypeLookup">
     </wsdl:input>
@@ -591,6 +841,22 @@
       <wsdl:input message="tns:submitVisaExtendRequest" name="submitVisaExtendRequest">
     </wsdl:input>
       <wsdl:output message="tns:submitVisaExtendRequestResponse" name="submitVisaExtendRequestResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submitVisaCancelRequest">
+      <wsdl:input message="tns:submitVisaCancelRequest" name="submitVisaCancelRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:submitVisaCancelRequestResponse" name="submitVisaCancelRequestResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRelationTypeLookup">
+      <wsdl:input message="tns:getRelationTypeLookup" name="getRelationTypeLookup">
+    </wsdl:input>
+      <wsdl:output message="tns:getRelationTypeLookupResponse" name="getRelationTypeLookupResponse">
     </wsdl:output>
       <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo">
     </wsdl:fault>
@@ -644,6 +910,34 @@
         <soap:fault name="ApplicationExceptionInfo" use="literal" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getNewVisaTypeLookup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getNewVisaTypeLookup">
+        <soap:header message="tns:getNewVisaTypeLookup" part="Security" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getNewVisaTypeLookupResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVisaCategoryLookup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getVisaCategoryLookup">
+        <soap:header message="tns:getVisaCategoryLookup" part="Security" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getVisaCategoryLookupResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="validateVisaExtendDetails">
       <soap:operation soapAction="" style="document" />
       <wsdl:input name="validateVisaExtendDetails">
@@ -652,6 +946,34 @@
         <soap:body parts="parameters" use="literal" />
       </wsdl:input>
       <wsdl:output name="validateVisaExtendDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisaAttachments">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="updateVisaAttachments">
+        <soap:header message="tns:updateVisaAttachments" part="Security" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="updateVisaAttachmentsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addVisaAttachment">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="addVisaAttachment">
+        <soap:header message="tns:addVisaAttachment" part="Security" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="addVisaAttachmentResponse">
         <soap:body use="literal" />
       </wsdl:output>
       <wsdl:fault name="ApplicationExceptionInfo">
@@ -714,6 +1036,20 @@
         <soap:fault name="ApplicationExceptionInfo" use="literal" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="getVisaSubCategoryLookup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getVisaSubCategoryLookup">
+        <soap:header message="tns:getVisaSubCategoryLookup" part="Security" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getVisaSubCategoryLookupResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="getApplicantTypeLookup">
       <soap:operation soapAction="" style="document" />
       <wsdl:input name="getApplicantTypeLookup">
@@ -736,6 +1072,34 @@
         <soap:body parts="parameters" use="literal" />
       </wsdl:input>
       <wsdl:output name="submitVisaExtendRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submitVisaCancelRequest">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="submitVisaCancelRequest">
+        <soap:header message="tns:submitVisaCancelRequest" part="Security" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="submitVisaCancelRequestResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRelationTypeLookup">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getRelationTypeLookup">
+        <soap:header message="tns:getRelationTypeLookup" part="Security" use="literal">
+        </soap:header>
+        <soap:body parts="parameters" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getRelationTypeLookupResponse">
         <soap:body use="literal" />
       </wsdl:output>
       <wsdl:fault name="ApplicationExceptionInfo">
