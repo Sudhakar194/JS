@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="OnlineVisaService" targetNamespace="http://service.online.visa.gdnpr.integration.cio.gov.bh/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.online.visa.gdnpr.integration.cio.gov.bh/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.online.visa.gdnpr.integration.cio.gov.bh/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="addVisaAttachment" type="tns:addVisaAttachment"/>
+      <xs:element name="addVisaAttachmentResponse" type="tns:addVisaAttachmentResponse"/>
+      <xs:element name="getAllOnlineVisaRequestInfo" type="tns:getAllOnlineVisaRequestInfo"/>
+      <xs:element name="getAllOnlineVisaRequestInfoResponse" type="tns:getAllOnlineVisaRequestInfoResponse"/>
+      <xs:element name="getAllVisasByInfo" type="tns:getAllVisasByInfo"/>
+      <xs:element name="getAllVisasByInfoResponse" type="tns:getAllVisasByInfoResponse"/>
+      <xs:element name="getApplicantTypeLookup" type="tns:getApplicantTypeLookup"/>
+      <xs:element name="getApplicantTypeLookupResponse" type="tns:getApplicantTypeLookupResponse"/>
+      <xs:element name="getGCCNationalityLookup" type="tns:getGCCNationalityLookup"/>
+      <xs:element name="getGCCNationalityLookupResponse" type="tns:getGCCNationalityLookupResponse"/>
+      <xs:element name="getIdentityTypeLookup" type="tns:getIdentityTypeLookup"/>
+      <xs:element name="getIdentityTypeLookupResponse" type="tns:getIdentityTypeLookupResponse"/>
+      <xs:element name="getNationalityLookup" type="tns:getNationalityLookup"/>
+      <xs:element name="getNationalityLookupResponse" type="tns:getNationalityLookupResponse"/>
+      <xs:element name="getNewVisaTypeLookup" type="tns:getNewVisaTypeLookup"/>
+      <xs:element name="getNewVisaTypeLookupResponse" type="tns:getNewVisaTypeLookupResponse"/>
+      <xs:element name="getOnlineReceiptByRequestNumber" type="tns:getOnlineReceiptByRequestNumber"/>
+      <xs:element name="getOnlineReceiptByRequestNumberResponse" type="tns:getOnlineReceiptByRequestNumberResponse"/>
+      <xs:element name="getOnlineVisaRequestOperationToByRequestNumber" type="tns:getOnlineVisaRequestOperationToByRequestNumber"/>
+      <xs:element name="getOnlineVisaRequestOperationToByRequestNumberResponse" type="tns:getOnlineVisaRequestOperationToByRequestNumberResponse"/>
+      <xs:element name="getRelationTypeLookup" type="tns:getRelationTypeLookup"/>
+      <xs:element name="getRelationTypeLookupResponse" type="tns:getRelationTypeLookupResponse"/>
+      <xs:element name="getServiceTypeLookup" type="tns:getServiceTypeLookup"/>
+      <xs:element name="getServiceTypeLookupResponse" type="tns:getServiceTypeLookupResponse"/>
+      <xs:element name="getVisaCategoryLookup" type="tns:getVisaCategoryLookup"/>
+      <xs:element name="getVisaCategoryLookupResponse" type="tns:getVisaCategoryLookupResponse"/>
+      <xs:element name="getVisaSubCategoryLookup" type="tns:getVisaSubCategoryLookup"/>
+      <xs:element name="getVisaSubCategoryLookupResponse" type="tns:getVisaSubCategoryLookupResponse"/>
+      <xs:element name="submitVisaCancelRequest" type="tns:submitVisaCancelRequest"/>
+      <xs:element name="submitVisaCancelRequestResponse" type="tns:submitVisaCancelRequestResponse"/>
+      <xs:element name="submitVisaExtendRequest" type="tns:submitVisaExtendRequest"/>
+      <xs:element name="submitVisaExtendRequestResponse" type="tns:submitVisaExtendRequestResponse"/>
+      <xs:element name="updateVisaAttachments" type="tns:updateVisaAttachments"/>
+      <xs:element name="updateVisaAttachmentsResponse" type="tns:updateVisaAttachmentsResponse"/>
+      <xs:element name="validateApplicant" type="tns:validateApplicant"/>
+      <xs:element name="validateApplicantResponse" type="tns:validateApplicantResponse"/>
+      <xs:element name="validateVisaExtendDetails" type="tns:validateVisaExtendDetails"/>
+      <xs:element name="validateVisaExtendDetailsResponse" type="tns:validateVisaExtendDetailsResponse"/>
+      <xs:complexType name="getServiceTypeLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType final="extension restriction" name="Security">
+        <xs:sequence>
+          <xs:element name="UsernameToken" type="tns:UsernameToken"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType final="extension restriction" name="UsernameToken">
+        <xs:sequence>
+          <xs:element name="Username" type="xs:string"/>
+          <xs:element name="Password" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getServiceTypeLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ServiceTypeResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LookupResponseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceTypeList" nillable="true" type="tns:lookupTo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="lookupTo">
+        <xs:complexContent>
+          <xs:extension base="tns:baseEntityTo">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="arabicName" type="xs:string"/>
+              <xs:element minOccurs="0" name="englishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="id" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="baseEntityTo">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:complexType name="ApplicationException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="message" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNewVisaTypeLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="visaType" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNewVisaTypeLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NewVisaTypeResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVisaCategoryLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVisaCategoryLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VisaCategoryResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateVisaExtendDetails">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="applicantTypeId" type="xs:string"/>
+          <xs:element minOccurs="0" name="applicantNationlityId" type="xs:string"/>
+          <xs:element name="ownerNationalityId" type="xs:string"/>
+          <xs:element name="ownerPassportNumber" type="xs:string"/>
+          <xs:element name="ownerBirthDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="sponsorIdentityType" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorNationalityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorIdentityNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateVisaExtendDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ValidateVisaExtendDetails" type="tns:VisaRequestInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisaRequestInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="visaNumber" type="xs:long"/>
+          <xs:element minOccurs="0" name="mfVisaNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="renewDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="issueDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="sponsorArabicName" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorEnglishName" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorMobileNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorPhoneNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerFirsArabictName" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerMiddleArabicName" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerLastArabicName" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerFirstEnglishName" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerMiddleEnglishName" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerLastEnglishName" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerMobileNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="ownerAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="reviewRequired" type="xs:string"/>
+          <xs:element minOccurs="0" name="isToPayFees" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="fees" nillable="true" type="tns:FeesInfo"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="attachments" nillable="true" type="tns:AttachmentInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FeesInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="feesId" type="xs:string"/>
+          <xs:element minOccurs="0" name="feesArabicDesc" type="xs:string"/>
+          <xs:element minOccurs="0" name="feesEnglishDesc" type="xs:string"/>
+          <xs:element minOccurs="0" name="itemAmount" type="xs:double"/>
+          <xs:element minOccurs="0" name="itemCount" type="xs:int"/>
+          <xs:element minOccurs="0" name="totalAmount" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AttachmentInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="attachmentId" type="xs:long"/>
+          <xs:element minOccurs="0" name="attachmentTypeCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="attachmentArabicDesc" type="xs:string"/>
+          <xs:element minOccurs="0" name="attachmentEnglishDesc" type="xs:string"/>
+          <xs:element minOccurs="0" name="isMandatory" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateVisaAttachments">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="requestNumber" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" name="attachmentID" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateVisaAttachmentsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UpdateVisaAttachments" type="tns:VisaAttachmentDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisaAttachmentDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="attachmentId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addVisaAttachment">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="passportNumber" type="xs:string"/>
+          <xs:element name="visaTypeCode" type="xs:string"/>
+          <xs:element name="attachment" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="addVisaAttachmentResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddVisaAttachment" type="tns:VisaAttachmentDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNationalityLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="serviceTypeId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getNationalityLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="NationalityResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getGCCNationalityLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getGCCNationalityLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GCCNationalityResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOnlineReceiptByRequestNumber">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="requestNumber" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOnlineReceiptByRequestNumberResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FileResponse" type="tns:FileResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="FileResponseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="fileBytes" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIdentityTypeLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getIdentityTypeLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdentityTypeResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVisaSubCategoryLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="visaCategory" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getVisaSubCategoryLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VisaSubCategoryResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getApplicantTypeLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getApplicantTypeLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ApplicantTypeResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="submitVisaExtendRequest">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="applicantTypeId" type="xs:string"/>
+          <xs:element minOccurs="0" name="applicantNationlityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="reason" type="xs:string"/>
+          <xs:element name="channelId" type="xs:string"/>
+          <xs:element name="paymentTransactionId" type="xs:string"/>
+          <xs:element name="paymentAuthorizationCode" type="xs:string"/>
+          <xs:element name="paymentMethod" type="xs:string"/>
+          <xs:element name="paymentDate" type="xs:dateTime"/>
+          <xs:element name="cardType" type="xs:string"/>
+          <xs:element name="cardNumber" type="xs:string"/>
+          <xs:element name="totalPaidAmount" type="xs:double"/>
+          <xs:element name="visaRequestInfo" type="tns:VisaRequestInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="submitVisaExtendRequestResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SubmitVisaExtendRequest" type="tns:VisaExtendResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisaExtendResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="visaNumber" type="xs:long"/>
+          <xs:element minOccurs="0" name="mfVisaNumber" type="xs:int"/>
+          <xs:element minOccurs="0" name="receiptNumber" type="xs:long"/>
+          <xs:element minOccurs="0" name="requestNumber" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="submitVisaCancelRequest">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="applicantTypeId" type="xs:string"/>
+          <xs:element minOccurs="0" name="applicantNationlityId" type="xs:string"/>
+          <xs:element name="ownerNationalityId" type="xs:string"/>
+          <xs:element name="ownerPassportNumber" type="xs:string"/>
+          <xs:element name="ownerBirthDate" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="sponsorIdentityType" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorNationalityId" type="xs:string"/>
+          <xs:element minOccurs="0" name="sponsorIdentityNumber" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="submitVisaCancelRequestResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="SubmitVisaCancelRequest" type="tns:VisaExtendResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getRelationTypeLookup">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getRelationTypeLookupResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RelationTypeResponse" type="tns:LookupResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateApplicant">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateApplicantResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ValidateApplicantResponse" type="tns:ValidateApplciantResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ValidateApplciantResponseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="arabicName" type="xs:string"/>
+          <xs:element minOccurs="0" name="englishName" type="xs:string"/>
+          <xs:element minOccurs="0" name="mobileNumber" type="xs:string"/>
+          <xs:element minOccurs="0" name="email" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOnlineVisaRequestOperationToByRequestNumber">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="requestNumber" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getOnlineVisaRequestOperationToByRequestNumberResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RequestDetailsResponse" type="tns:RequestDetailsInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RequestDetailsInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="visaOnlineRequest" type="tns:visaOnlineRequestTo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="visaOnlineRequestTo">
+        <xs:complexContent>
+          <xs:extension base="tns:baseEntityTo">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="applicantArabicName" type="xs:string"/>
+              <xs:element minOccurs="0" name="applicantCPR" type="xs:int"/>
+              <xs:element minOccurs="0" name="applicantContactNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="applicantEmail" type="xs:string"/>
+              <xs:element minOccurs="0" name="applicantEnglishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="applicantGccCntryCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="applicantGccIdNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="applicantPersonNumber" type="xs:long"/>
+              <xs:element minOccurs="0" name="applicantType" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerCountryCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerFirstArabictName" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerFirstEnglishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerLastArabicName" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerLastEnglishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerPassportExpiry" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="ownerPassportNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerPassportTypeCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="ownerPersonNumber" type="xs:long"/>
+              <xs:element minOccurs="0" name="requestDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="requestNote" type="xs:string"/>
+              <xs:element minOccurs="0" name="requestNumber" type="xs:long"/>
+              <xs:element minOccurs="0" name="requestStatusCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="requestStatusDecAr" type="xs:string"/>
+              <xs:element minOccurs="0" name="requestStatusDecEn" type="xs:string"/>
+              <xs:element minOccurs="0" name="requestTypeCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="sponsorArabicName" type="xs:string"/>
+              <xs:element minOccurs="0" name="sponsorContactNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="sponsorCountryCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="sponsorDisplayNumber" type="xs:long"/>
+              <xs:element minOccurs="0" name="sponsorEmail" type="xs:string"/>
+              <xs:element minOccurs="0" name="sponsorEnglishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="sponsorNumber" type="xs:long"/>
+              <xs:element minOccurs="0" name="sponsorTypeCode" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="getAllOnlineVisaRequestInfo">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="ownerNationalityId" type="xs:string"/>
+          <xs:element name="ownerPassportNumber" type="xs:string"/>
+          <xs:element name="requestNumber" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllOnlineVisaRequestInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="RequestListResponse" type="tns:RequestListResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RequestListResponseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="requestList" nillable="true" type="tns:visaOnlineRequestTo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllVisasByInfo">
+        <xs:sequence>
+          <xs:element name="eKeyCPRNumber" type="xs:string"/>
+          <xs:element name="eKeyServiceID" type="xs:string"/>
+          <xs:element name="eKeyTokenID" type="xs:string"/>
+          <xs:element name="eKeyTimestamp" type="xs:string"/>
+          <xs:element name="printedVisaNumber" type="xs:int"/>
+          <xs:element name="ownerPassportNumber" type="xs:string"/>
+          <xs:element name="ownerNationalityId" type="xs:string"/>
+          <xs:element name="sponsorTypeId" type="xs:string"/>
+          <xs:element name="sponsorNumber" type="xs:string"/>
+          <xs:element name="sponsorNationalityId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="getAllVisasByInfoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="VisaListResponse" type="tns:VisaListResponseInfo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="VisaListResponseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="responseCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="responseMessage" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="visaList" nillable="true" type="tns:visaOnlineTo"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="visaOnlineTo">
+        <xs:complexContent>
+          <xs:extension base="tns:baseEntityTo">
+            <xs:sequence>
+              <xs:element name="allowCancelation" type="xs:boolean"/>
+              <xs:element name="allowRenwal" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="printedVisaNumber" type="xs:int"/>
+              <xs:element minOccurs="0" name="visaExpiryDate" type="xs:dateTime"/>
+              <xs:element minOccurs="0" name="visaHolderCountryCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderFirstArabictName" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderFirstEnglishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderLastArabicName" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderLastEnglishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderMiddleArabictName" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderMiddleEnglishName" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderPassportNumber" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderPassportTypeCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaHolderPersonNumber" type="xs:long"/>
+              <xs:element minOccurs="0" name="visaNumber" type="xs:long"/>
+              <xs:element name="visaPrintable" type="xs:boolean"/>
+              <xs:element minOccurs="0" name="visaStatusArabic" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaStatusCode" type="xs:string"/>
+              <xs:element minOccurs="0" name="visaStatusEnglish" type="xs:string"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ApplicationException" nillable="true" type="tns:ApplicationException"/>
+      <xs:element name="Security" nillable="true" type="tns:Security"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getServiceTypeLookup">
+    <wsdl:part element="tns:getServiceTypeLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getAllVisasByInfoResponse">
+    <wsdl:part element="tns:getAllVisasByInfoResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getNewVisaTypeLookup">
+    <wsdl:part element="tns:getNewVisaTypeLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getVisaCategoryLookup">
+    <wsdl:part element="tns:getVisaCategoryLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="validateVisaExtendDetails">
+    <wsdl:part element="tns:validateVisaExtendDetails" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="addVisaAttachment">
+    <wsdl:part element="tns:addVisaAttachment" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getGCCNationalityLookup">
+    <wsdl:part element="tns:getGCCNationalityLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getOnlineReceiptByRequestNumber">
+    <wsdl:part element="tns:getOnlineReceiptByRequestNumber" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getOnlineReceiptByRequestNumberResponse">
+    <wsdl:part element="tns:getOnlineReceiptByRequestNumberResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateVisaAttachmentsResponse">
+    <wsdl:part element="tns:updateVisaAttachmentsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getRelationTypeLookupResponse">
+    <wsdl:part element="tns:getRelationTypeLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getVisaSubCategoryLookup">
+    <wsdl:part element="tns:getVisaSubCategoryLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getApplicantTypeLookup">
+    <wsdl:part element="tns:getApplicantTypeLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getVisaCategoryLookupResponse">
+    <wsdl:part element="tns:getVisaCategoryLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addVisaAttachmentResponse">
+    <wsdl:part element="tns:addVisaAttachmentResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getGCCNationalityLookupResponse">
+    <wsdl:part element="tns:getGCCNationalityLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getNewVisaTypeLookupResponse">
+    <wsdl:part element="tns:getNewVisaTypeLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="submitVisaCancelRequest">
+    <wsdl:part element="tns:submitVisaCancelRequest" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="validateApplicantResponse">
+    <wsdl:part element="tns:validateApplicantResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="submitVisaCancelRequestResponse">
+    <wsdl:part element="tns:submitVisaCancelRequestResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validateApplicant">
+    <wsdl:part element="tns:validateApplicant" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getAllOnlineVisaRequestInfo">
+    <wsdl:part element="tns:getAllOnlineVisaRequestInfo" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getAllVisasByInfo">
+    <wsdl:part element="tns:getAllVisasByInfo" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="validateVisaExtendDetailsResponse">
+    <wsdl:part element="tns:validateVisaExtendDetailsResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="ApplicationExceptionInfo">
+    <wsdl:part element="tns:ApplicationException" name="ApplicationExceptionInfo"/>
+  </wsdl:message>
+  <wsdl:message name="updateVisaAttachments">
+    <wsdl:part element="tns:updateVisaAttachments" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getNationalityLookup">
+    <wsdl:part element="tns:getNationalityLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getVisaSubCategoryLookupResponse">
+    <wsdl:part element="tns:getVisaSubCategoryLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getApplicantTypeLookupResponse">
+    <wsdl:part element="tns:getApplicantTypeLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getServiceTypeLookupResponse">
+    <wsdl:part element="tns:getServiceTypeLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getIdentityTypeLookup">
+    <wsdl:part element="tns:getIdentityTypeLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="submitVisaExtendRequestResponse">
+    <wsdl:part element="tns:submitVisaExtendRequestResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getAllOnlineVisaRequestInfoResponse">
+    <wsdl:part element="tns:getAllOnlineVisaRequestInfoResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="submitVisaExtendRequest">
+    <wsdl:part element="tns:submitVisaExtendRequest" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getRelationTypeLookup">
+    <wsdl:part element="tns:getRelationTypeLookup" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getOnlineVisaRequestOperationToByRequestNumber">
+    <wsdl:part element="tns:getOnlineVisaRequestOperationToByRequestNumber" name="parameters"/>
+    <wsdl:part element="tns:Security" name="Security"/>
+  </wsdl:message>
+  <wsdl:message name="getOnlineVisaRequestOperationToByRequestNumberResponse">
+    <wsdl:part element="tns:getOnlineVisaRequestOperationToByRequestNumberResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getIdentityTypeLookupResponse">
+    <wsdl:part element="tns:getIdentityTypeLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getNationalityLookupResponse">
+    <wsdl:part element="tns:getNationalityLookupResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="OnlineVisaService">
+    <wsdl:operation name="getServiceTypeLookup">
+      <wsdl:input message="tns:getServiceTypeLookup" name="getServiceTypeLookup"/>
+      <wsdl:output message="tns:getServiceTypeLookupResponse" name="getServiceTypeLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getNewVisaTypeLookup">
+      <wsdl:input message="tns:getNewVisaTypeLookup" name="getNewVisaTypeLookup"/>
+      <wsdl:output message="tns:getNewVisaTypeLookupResponse" name="getNewVisaTypeLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getVisaCategoryLookup">
+      <wsdl:input message="tns:getVisaCategoryLookup" name="getVisaCategoryLookup"/>
+      <wsdl:output message="tns:getVisaCategoryLookupResponse" name="getVisaCategoryLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="validateVisaExtendDetails">
+      <wsdl:input message="tns:validateVisaExtendDetails" name="validateVisaExtendDetails"/>
+      <wsdl:output message="tns:validateVisaExtendDetailsResponse" name="validateVisaExtendDetailsResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisaAttachments">
+      <wsdl:input message="tns:updateVisaAttachments" name="updateVisaAttachments"/>
+      <wsdl:output message="tns:updateVisaAttachmentsResponse" name="updateVisaAttachmentsResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="addVisaAttachment">
+      <wsdl:input message="tns:addVisaAttachment" name="addVisaAttachment"/>
+      <wsdl:output message="tns:addVisaAttachmentResponse" name="addVisaAttachmentResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getNationalityLookup">
+      <wsdl:input message="tns:getNationalityLookup" name="getNationalityLookup"/>
+      <wsdl:output message="tns:getNationalityLookupResponse" name="getNationalityLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getGCCNationalityLookup">
+      <wsdl:input message="tns:getGCCNationalityLookup" name="getGCCNationalityLookup"/>
+      <wsdl:output message="tns:getGCCNationalityLookupResponse" name="getGCCNationalityLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getOnlineReceiptByRequestNumber">
+      <wsdl:input message="tns:getOnlineReceiptByRequestNumber" name="getOnlineReceiptByRequestNumber"/>
+      <wsdl:output message="tns:getOnlineReceiptByRequestNumberResponse" name="getOnlineReceiptByRequestNumberResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getIdentityTypeLookup">
+      <wsdl:input message="tns:getIdentityTypeLookup" name="getIdentityTypeLookup"/>
+      <wsdl:output message="tns:getIdentityTypeLookupResponse" name="getIdentityTypeLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getVisaSubCategoryLookup">
+      <wsdl:input message="tns:getVisaSubCategoryLookup" name="getVisaSubCategoryLookup"/>
+      <wsdl:output message="tns:getVisaSubCategoryLookupResponse" name="getVisaSubCategoryLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicantTypeLookup">
+      <wsdl:input message="tns:getApplicantTypeLookup" name="getApplicantTypeLookup"/>
+      <wsdl:output message="tns:getApplicantTypeLookupResponse" name="getApplicantTypeLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="submitVisaExtendRequest">
+      <wsdl:input message="tns:submitVisaExtendRequest" name="submitVisaExtendRequest"/>
+      <wsdl:output message="tns:submitVisaExtendRequestResponse" name="submitVisaExtendRequestResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="submitVisaCancelRequest">
+      <wsdl:input message="tns:submitVisaCancelRequest" name="submitVisaCancelRequest"/>
+      <wsdl:output message="tns:submitVisaCancelRequestResponse" name="submitVisaCancelRequestResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getRelationTypeLookup">
+      <wsdl:input message="tns:getRelationTypeLookup" name="getRelationTypeLookup"/>
+      <wsdl:output message="tns:getRelationTypeLookupResponse" name="getRelationTypeLookupResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="validateApplicant">
+      <wsdl:input message="tns:validateApplicant" name="validateApplicant"/>
+      <wsdl:output message="tns:validateApplicantResponse" name="validateApplicantResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getOnlineVisaRequestOperationToByRequestNumber">
+      <wsdl:input message="tns:getOnlineVisaRequestOperationToByRequestNumber" name="getOnlineVisaRequestOperationToByRequestNumber"/>
+      <wsdl:output message="tns:getOnlineVisaRequestOperationToByRequestNumberResponse" name="getOnlineVisaRequestOperationToByRequestNumberResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllOnlineVisaRequestInfo">
+      <wsdl:input message="tns:getAllOnlineVisaRequestInfo" name="getAllOnlineVisaRequestInfo"/>
+      <wsdl:output message="tns:getAllOnlineVisaRequestInfoResponse" name="getAllOnlineVisaRequestInfoResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+    <wsdl:operation name="getAllVisasByInfo">
+      <wsdl:input message="tns:getAllVisasByInfo" name="getAllVisasByInfo"/>
+      <wsdl:output message="tns:getAllVisasByInfoResponse" name="getAllVisasByInfoResponse"/>
+      <wsdl:fault message="tns:ApplicationExceptionInfo" name="ApplicationExceptionInfo"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OnlineVisaServiceSoapBinding" type="tns:OnlineVisaService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getServiceTypeLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getServiceTypeLookup">
+        <soap:header message="tns:getServiceTypeLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getServiceTypeLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNewVisaTypeLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNewVisaTypeLookup">
+        <soap:header message="tns:getNewVisaTypeLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNewVisaTypeLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVisaCategoryLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getVisaCategoryLookup">
+        <soap:header message="tns:getVisaCategoryLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVisaCategoryLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="validateVisaExtendDetails">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="validateVisaExtendDetails">
+        <soap:header message="tns:validateVisaExtendDetails" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validateVisaExtendDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateVisaAttachments">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateVisaAttachments">
+        <soap:header message="tns:updateVisaAttachments" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateVisaAttachmentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addVisaAttachment">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addVisaAttachment">
+        <soap:header message="tns:addVisaAttachment" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addVisaAttachmentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getNationalityLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNationalityLookup">
+        <soap:header message="tns:getNationalityLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNationalityLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getGCCNationalityLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getGCCNationalityLookup">
+        <soap:header message="tns:getGCCNationalityLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getGCCNationalityLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOnlineReceiptByRequestNumber">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOnlineReceiptByRequestNumber">
+        <soap:header message="tns:getOnlineReceiptByRequestNumber" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOnlineReceiptByRequestNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getIdentityTypeLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getIdentityTypeLookup">
+        <soap:header message="tns:getIdentityTypeLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getIdentityTypeLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getVisaSubCategoryLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getVisaSubCategoryLookup">
+        <soap:header message="tns:getVisaSubCategoryLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getVisaSubCategoryLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getApplicantTypeLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getApplicantTypeLookup">
+        <soap:header message="tns:getApplicantTypeLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getApplicantTypeLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submitVisaExtendRequest">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="submitVisaExtendRequest">
+        <soap:header message="tns:submitVisaExtendRequest" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="submitVisaExtendRequestResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="submitVisaCancelRequest">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="submitVisaCancelRequest">
+        <soap:header message="tns:submitVisaCancelRequest" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="submitVisaCancelRequestResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getRelationTypeLookup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRelationTypeLookup">
+        <soap:header message="tns:getRelationTypeLookup" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRelationTypeLookupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="validateApplicant">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="validateApplicant">
+        <soap:header message="tns:validateApplicant" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validateApplicantResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOnlineVisaRequestOperationToByRequestNumber">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOnlineVisaRequestOperationToByRequestNumber">
+        <soap:header message="tns:getOnlineVisaRequestOperationToByRequestNumber" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOnlineVisaRequestOperationToByRequestNumberResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllOnlineVisaRequestInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllOnlineVisaRequestInfo">
+        <soap:header message="tns:getAllOnlineVisaRequestInfo" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllOnlineVisaRequestInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllVisasByInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllVisasByInfo">
+        <soap:header message="tns:getAllVisasByInfo" part="Security" use="literal"/>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllVisasByInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExceptionInfo">
+        <soap:fault name="ApplicationExceptionInfo" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OnlineVisaService">
+    <wsdl:port binding="tns:OnlineVisaServiceSoapBinding" name="OnlineVisaServiceWS">
+      <soap:address location="http://stg-gdnpresb.gov.bh/cio-gdnpr-esb/svc/OnlineVisaService.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
